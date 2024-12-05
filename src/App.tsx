@@ -9,19 +9,27 @@ import {
 } from "@mui/material";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import BigNumber from "bignumber.js";
+import { ECPairFactory } from "ecpair";
+import * as ecc from "tiny-secp256k1";
 
 import {
   getSubmarineSwapFees,
   getReverseSwapFees,
+  API_BASE_URL,
+  createSubmarineSwap,
+  getClaimTransactionDetails,
+  validatePreimage,
+  createClaimTransaction,
 } from "./services/swapService";
 
 const App: React.FC = () => {
-  const [inputSats, setInputSats] = useState(0);
-  const [outputSats, setOutputSats] = useState(0);
+  const [inputSats, setInputSats] = useState<any>("");
+  const [outputSats, setOutputSats] = useState<any>("");
   const [serviceFeeSats, setserviceFeeSats] = useState(0);
   const [reverse, setReverse] = useState(false);
   const [subInfo, setSubInfo] = useState<any>(null);
   const [reverseInfo, setReverseInfo] = useState<any>(null);
+  const [invoice, setInvoice] = useState<string>("");
   const info: any = reverse ? reverseInfo : subInfo;
 
   const serviceFeePct = info?.fees?.percentage || 0;
@@ -37,6 +45,99 @@ const App: React.FC = () => {
 
   const bigFloor = (big: BigNumber): BigNumber => {
     return big.integerValue(BigNumber.ROUND_FLOOR);
+  };
+
+  const numberWithCommas = (x: string | number) =>
+    x?.toString()?.replace(/\B(?=(\d{3})+(?!\d))/g, ",") || "0";
+
+  const submarineSwap = async (invoice: string) => {
+    console.log("invoice:", invoice);
+    try {
+      const keys: any = ECPairFactory(ecc).makeRandom();
+
+      // Create Submarine Swap
+      const createdResponse = (
+        await createSubmarineSwap(
+          invoice,
+          Buffer.from(keys.publicKey).toString("hex")
+        )
+      ).data;
+      console.log("Created swap:", createdResponse);
+
+      // WebSocket Initialization
+      const webSocket = new WebSocket(
+        `${API_BASE_URL.replace("http://", "ws://")}/ws`
+      );
+
+      // Handle WebSocket open event
+      webSocket.onopen = () => {
+        console.log("WebSocket connection opened.");
+        webSocket.send(
+          JSON.stringify({
+            op: "subscribe",
+            channel: "swap.update",
+            args: [createdResponse.id],
+          })
+        );
+      };
+
+      // Handle WebSocket message event
+      webSocket.onmessage = async (event: MessageEvent) => {
+        try {
+          const msg = JSON.parse(event.data);
+          if (msg.event !== "update") return;
+
+          console.log("WebSocket Update:", msg);
+
+          switch (msg.args[0].status) {
+            case "invoice.set":
+              console.log("Waiting for onchain transaction...");
+              break;
+
+            case "transaction.claim.pending":
+              console.log("Creating cooperative claim transaction...");
+              const claimTxDetails = (
+                await getClaimTransactionDetails(createdResponse.id)
+              ).data;
+
+              // Validate Preimage
+              if (!validatePreimage(invoice, claimTxDetails.preimage)) {
+                console.error("Invalid preimage from Boltz.");
+                return;
+              }
+
+              await createClaimTransaction(
+                claimTxDetails,
+                createdResponse,
+                keys
+              );
+              break;
+
+            case "transaction.claimed":
+              console.log("Swap successful!");
+              webSocket.close();
+              break;
+
+            default:
+              console.warn("Unhandled status:", msg.args[0].status);
+          }
+        } catch (error) {
+          console.error("Error processing WebSocket message:", error);
+        }
+      };
+
+      // Handle WebSocket error event
+      webSocket.onerror = (error: Event) => {
+        console.error("WebSocket error:", error);
+      };
+
+      // Handle WebSocket close event
+      webSocket.onclose = (event: CloseEvent) => {
+        console.log(`WebSocket connection closed. Code: ${event.code}`);
+      };
+    } catch (error) {
+      console.error("Error in submarineSwap:", error);
+    }
   };
 
   const calculateReceiveAmount = (
@@ -113,7 +214,8 @@ const App: React.FC = () => {
   const min = calculateLimit(info?.limits?.minimal || 0);
   const max = calculateLimit(info?.limits?.maximal || 0);
 
-  const errorInput = (inputSats !== 0 && inputSats < min) || inputSats > max;
+  const errorInput =
+    (inputSats !== 0 && inputSats !== "" && inputSats < min) || inputSats > max;
   const errorOutput = outputSats < 0;
   const error = errorInput || errorOutput;
 
@@ -173,19 +275,17 @@ const App: React.FC = () => {
           }}
         >
           <Typography>
-            Send min: {new BigNumber(min).toString()} sats
+            Send min: {numberWithCommas(new BigNumber(min).toString())} sats
           </Typography>
           <Typography>
-            Send max: {new BigNumber(max).toString()} sats
+            Send max: {numberWithCommas(new BigNumber(max).toString())} sats
           </Typography>
         </Box>
 
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <TextField
             label={reverse ? "Lightning" : "Bitcoin"}
-            placeholder={
-              reverse ? "Enter Lightning invoice" : "Enter BTC address"
-            }
+            placeholder={"0"}
             variant="outlined"
             error={errorInput}
             onChange={(e: any) => {
@@ -228,9 +328,7 @@ const App: React.FC = () => {
           </Box>
           <TextField
             label={reverse ? "Bitcoin" : "Lightning"}
-            placeholder={
-              reverse ? "Enter BTC address" : "Enter Lightning invoice"
-            }
+            placeholder={"0"}
             variant="outlined"
             error={errorOutput}
             onChange={(e: any) => {
@@ -274,7 +372,7 @@ const App: React.FC = () => {
             }}
           >
             <Typography variant="body2" sx={{ textAlign: "right" }}>
-              Network Fee: {networkFee.toString()} sats
+              Network Fee: {numberWithCommas(networkFee.toString())} sats
             </Typography>
             <Typography variant="body2" sx={{ textAlign: "right" }}>
               Service Fee ({serviceFeePct.toString()}%):{" "}
@@ -287,10 +385,19 @@ const App: React.FC = () => {
               reverse ? "Enter BTC address" : "Paste a Lightning invoice"
             }
             multiline
-            rows={3}
+            onChange={(e) => {
+              setInvoice(e.target.value);
+            }}
+            rows={5}
+            value={invoice}
             variant="outlined"
           />
-          <Button variant="contained" color="primary" fullWidth>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={() => submarineSwap(invoice)}
+          >
             Create Atomic Swap
           </Button>
         </Box>
