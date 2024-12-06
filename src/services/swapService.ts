@@ -30,14 +30,22 @@ export const getReverseSwapFees = async () => {
   }
 };
 
-// Create a submarine swap
 export const createSubmarineSwap = async (invoice: string, publicKey: any) => {
-  return await axios.post(`${API_BASE_URL}/swap/submarine`, {
-    invoice,
-    to: "BTC",
-    from: "BTC",
-    refundPublicKey: publicKey,
-  });
+  try {
+    const response = await axios.post(`${API_BASE_URL}/swap/submarine`, {
+      invoice,
+      to: "BTC",
+      from: "BTC",
+      refundPublicKey: publicKey,
+    });
+    return response.data;
+  } catch (error: any) {
+    console.error("Error creating swap:", error);
+    if (error.response && error.response.data) {
+      return error.response.data;
+    }
+    throw new Error("Unexpected error occurred while creating swap.");
+  }
 };
 
 // Get claim transaction details
