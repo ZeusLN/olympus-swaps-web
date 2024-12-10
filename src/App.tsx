@@ -6,14 +6,12 @@ import {
   Button,
   IconButton,
   Card,
-  CircularProgress,
 } from "@mui/material";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
 import BigNumber from "bignumber.js";
 import { ECPairFactory } from "ecpair";
 import * as ecc from "tiny-secp256k1";
 import * as QRCode from "qrcode.react";
-import { useNavigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -27,6 +25,10 @@ import {
   createClaimTransaction,
 } from "./services/swapService";
 
+import BitcoinSvg from "../public/svg/bitcoin-icon.svg";
+import LightningSvg from "../public/svg/Lightning Bolt.svg";
+import LoadingIndicator from "./components/LoadingIndicator";
+
 const App: React.FC = () => {
   const [inputSats, setInputSats] = useState<any>("");
   const [outputSats, setOutputSats] = useState<any>("");
@@ -39,8 +41,6 @@ const App: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [swapData, setSwapData] = useState<any>(null);
   const [websocketStatus, setWebSocketStatus] = useState<string | null>(null);
-  const [showQRCode, setShowQRCode] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   const serviceFeePct = info?.fees?.percentage || 0;
   const networkFee = reverse
@@ -113,13 +113,10 @@ const App: React.FC = () => {
           switch (status) {
             case "invoice.set":
               console.log("Waiting for onchain transaction...");
-              navigate(`/swap/${createdResponse.id}`);
-              setShowQRCode(true);
               break;
 
             case "transaction.mempool":
               console.log("Transaction is in mempool");
-              setShowQRCode(false);
               break;
 
             case "transaction.claim.pending":
@@ -285,20 +282,136 @@ const App: React.FC = () => {
         </Typography>
       )}
 
-      {swapData && swapData.bip21 && showQRCode ? (
-        <Box sx={{ textAlign: "center", width: "100%" }}>
-          <Typography variant="h6" sx={{ mb: 2 }}>
-            Scan to Pay
-          </Typography>
-          <QRCode.QRCodeCanvas value={swapData.bip21} size={200} />
-        </Box>
-      ) : swapData && websocketStatus ? (
-        <Box sx={{ textAlign: "center", width: "100%" }}>
-          <CircularProgress />
-          <Typography variant="h6" sx={{ mt: 2 }}>
-            Status: {websocketStatus}
-          </Typography>
-        </Box>
+      {swapData ? (
+        <>
+          <Box
+            sx={{ textAlign: "center", width: "100%", position: "relative" }}
+          >
+            <Typography
+              variant="h6"
+              style={{
+                color: "white",
+                display: "flex",
+                fontWeight: "bold",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              Swap: {swapData?.id}
+              <img
+                src={BitcoinSvg}
+                alt="Bitcoin Logo"
+                height="28"
+                style={{ marginLeft: "12px" }}
+              />
+              <span style={{ marginLeft: "8px" }}>→</span>
+              <img
+                src={LightningSvg}
+                alt="Lightning Logo"
+                height="30"
+                style={{ marginLeft: "3px" }}
+              />
+            </Typography>
+
+            <Typography
+              style={{
+                backgroundColor: "black",
+                color: "yellow",
+                fontSize: 14,
+                padding: "8px 16px",
+                borderRadius: "10px",
+                marginTop: "10px",
+                textAlign: "center",
+                display: "inline-block",
+              }}
+            >
+              Status: {websocketStatus}
+            </Typography>
+
+            {websocketStatus === "invoice.set" && (
+              <>
+                <Typography
+                  variant="h6"
+                  style={{
+                    color: "white",
+                    marginBottom: "20px",
+                    marginTop: "10px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Send {numberWithCommas(swapData?.expectedAmount)} sats to
+                </Typography>
+                <div style={{ position: "relative", display: "inline-block" }}>
+                  <QRCode.QRCodeSVG
+                    value={swapData.bip21}
+                    size={300}
+                    style={{ border: "20px solid white" }}
+                  />
+                  <img
+                    src={BitcoinSvg}
+                    alt="Bitcoin Logo"
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: "50px",
+                      height: "50px",
+                      border: "4px solid white",
+                      borderRadius: "50%",
+                    }}
+                  />
+                </div>
+
+                <Typography
+                  style={{
+                    color: "#a3a3a3",
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    padding: "16px 32px",
+                    borderRadius: "8px",
+                    marginTop: "25px",
+                    textAlign: "center",
+                    display: "inline-block",
+                  }}
+                >
+                  {swapData?.address}
+                </Typography>
+              </>
+            )}
+
+            {websocketStatus === "transaction.mempool" && (
+              <>
+                <Typography
+                  style={{
+                    color: "white",
+                    marginTop: "18px",
+                    fontSize: 16,
+                    marginBottom: "20px",
+                  }}
+                >
+                  Transaction is in mempool. Waiting for confirmation to
+                  complete the swap...
+                </Typography>
+                <LoadingIndicator size={80} />
+              </>
+            )}
+            {websocketStatus === "invoice.pending" && (
+              <>
+                <Typography
+                  style={{
+                    color: "white",
+                    marginTop: "18px",
+                    fontSize: 16,
+                    marginBottom: "20px",
+                  }}
+                >
+                  Transaction received, paying invoice.
+                </Typography>
+                <LoadingIndicator size={80} />
+              </>
+            )}
+          </Box>
+        </>
       ) : (
         <Box sx={{ width: "100%", color: "#a3a3a3" }}>
           <Typography variant="h5" align="center" sx={{ mb: 1, width: "100%" }}>
