@@ -322,30 +322,41 @@ const Create = () => {
             <Show when={wasmSupported()} fallback={<ErrorWasm />}>
                 <div class="frame">
                     <SettingsCog />
-                    <h2 data-testid="create-swap-title">{t("create_swap")}</h2>
-                    <p>
-                        {t("create_swap_subline")} <br />
-                        {t("send")} {t("min")}:{" "}
-                        <span
-                            onClick={() => setAmount(minimum())}
-                            class="btn-small btn-light">
-                            {formatAmount(
-                                BigNumber(minimum()),
-                                denomination(),
-                                separator(),
-                            )}
-                        </span>{" "}
-                        {t("max")}:{" "}
-                        <span
-                            onClick={() => setAmount(maximum())}
-                            class="btn-small btn-light">
-                            {formatAmount(
-                                BigNumber(maximum()),
-                                denomination(),
-                                separator(),
-                            )}
-                        </span>{" "}
-                    </p>
+                    <h2 data-testid="create-swap-title" class="marlide-font">
+                        {t("create_swap")}
+                    </h2>
+                    <p class="pp-neue-montreal">{t("create_swap_subline")}</p>
+                    <div class="swap-actions">
+                        <span class="swap-min pp-neue-montreal">
+                            {t("send")} {t("min")}:{" "}
+                            <span
+                                onClick={() => setAmount(minimum())}
+                                class="btn-small btn-light">
+                                {formatAmount(
+                                    BigNumber(minimum()),
+                                    denomination(),
+                                    separator(),
+                                )}{" "}
+                                {denomination() === Denomination.Btc && "BTC"}
+                                {denomination() === Denomination.Sat && "SATS"}
+                            </span>
+                        </span>
+                        <span class="swap-max pp-neue-montreal">
+                            {t("send")} {t("max")}:{" "}
+                            <span
+                                onClick={() => setAmount(maximum())}
+                                class="btn-small btn-light">
+                                {formatAmount(
+                                    BigNumber(maximum()),
+                                    denomination(),
+                                    separator(),
+                                )}{" "}
+                                {denomination() === Denomination.Btc && "BTC"}
+                                {denomination() === Denomination.Sat && "SATS"}
+                            </span>
+                        </span>
+                    </div>
+
                     <div class="icons">
                         <div>
                             <Asset side={Side.Send} signal={assetSend} />

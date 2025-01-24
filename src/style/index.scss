@@ -10,6 +10,31 @@
     font-family: "Noto Mono", sans;
 }
 
+/* Define Marlide Display Bold */
+@font-face {
+    font-family: 'Marlide Display Bold';
+    src: url('../../src/fonts/Marlide-Display-Bold.ttf') format('truetype'); 
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Define PP Neue Montreal */
+@font-face {
+    font-family: 'PP Neue Montreal';
+    src: url('../../src/fonts/ppneuemontreal-book.otf') format('opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+.marlide-font {
+    font-family: 'Marlide Display Bold', sans-serif;
+}
+
+.pp-neue-montreal {
+    font-family: 'PP Neue Montreal', sans-serif;
+    font-size: 14px
+}
+
 body {
     font-size: 14px;
     margin: 0;
@@ -179,12 +204,12 @@ hr.spacer {
 }
  
 .btn-status {
-    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
-    color: var(--primary); /* Use your CSS variable for primary color */
+    background-color: rgba(0, 0, 0, 0.2); 
+    color: vars.$primary;
     margin-top: 6px;
-    padding: 6px 12px; /* Add padding */
-    border-radius: 6px; /* Add border radius */
-    display: inline-block; /* Ensure padding and radius work correctly */
+    padding: 6px 12px; 
+    border-radius: 6px; 
+    display: inline-block; 
 }
 
 .btn-small {
@@ -411,6 +436,24 @@ textarea {
         border: 1px solid rgba(255, 255, 255, 0.25);
     }
 }
+.toggle-to-sats{
+    color: rgb(247, 147, 26);
+
+}
+
+.swap-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem; 
+}
+
+.swap-actions .swap-min {
+    text-align: left; 
+}
+
+.swap-actions .swap-max {
+    text-align: right;
+}
 .denomination img {
     filter: brightness(10);
     cursor: pointer;
@@ -478,51 +521,51 @@ textarea {
 
 /* Style for the input fields */
 .frame input {
-    background: transparent; /* Make the background transparent */
-    border: 2px solid #a3a3a3; /* Add a subtle border */
-    color: #fff; /* Ensure text color is white */
-    padding: 8px 12px; /* Add some padding for better appearance */
-    border-radius: 6px; /* Optional: Add rounded corners */
-    width: 100%; /* Ensure inputs take up full width */
-    box-sizing: border-box; /* Include padding and border in the element's width */
-    outline: none; /* Remove the default focus outline */
+    background: transparent; 
+    border: 2px solid #a3a3a3; 
+    color: #fff; 
+    padding: 8px 12px; 
+    border-radius: 6px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    outline: none; 
 }
 
 /* Style for the input fields on focus */
 .frame input:focus {
-    border: 2px solid #EFC22B; /* Change border color on focus */
+    border: 2px solid #EFC22B; 
     background: rgba(0, 0, 0, 0.1);
 }
 
-/* Optional: Placeholder text styling */
+/* Placeholder text styling */
 .frame input::placeholder {
-    color: rgba(255, 255, 255, 0.5); /* Lighten the placeholder text */
+    color: rgba(255, 255, 255, 0.2); 
 }
 
 /* Style for the textarea */
 textarea {
-    background: transparent; /* Make the background transparent */
-    border: 2px solid #a3a3a3; /* Add a subtle border */
-    color: #fff; /* Ensure text color is white */
-    padding: 8px 12px; /* Add some padding for better appearance */
-    border-radius: 4px; /* Optional: Add rounded corners */
-    width: 100%; /* Ensure it takes up the full width */
-    box-sizing: border-box; /* Include padding and border in the element's width */
-    outline: none; /* Remove the default focus outline */
-    resize: vertical; /* Allow vertical resizing */
-    font-family: inherit; /* Use the same font as the rest of the page */
-    font-size: inherit; /* Use the same font size as the rest of the page */
+    background: transparent; 
+    border: 2px solid #a3a3a3; 
+    color: #fff; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    outline: none; 
+    resize: vertical; 
+    font-family: inherit; 
+    font-size: inherit; 
 }
 
 /* Style for the textarea on focus */
 textarea:focus {
     background: rgba(0, 0, 0, 0.1);
-    border: 2px solid #EFC22B; /* Change border color on focus */
+    border: 2px solid #EFC22B;
 }
 
 /* Optional: Placeholder text styling */
 textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5); /* Lighten the placeholder text */
+    color: rgba(255, 255, 255, 0.5); 
 }
 
 @media (min-width: 488px) {
