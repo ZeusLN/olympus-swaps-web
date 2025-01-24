@@ -43,7 +43,7 @@ const DownloadRefund = () => {
 
     return (
         <button
-            class="btn btn-success"
+            class="btn btn-light"
             onClick={() =>
                 isMobile()
                     ? downloadRefundQr(swap())

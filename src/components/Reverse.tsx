@@ -1,4 +1,4 @@
-import { ImArrowDown } from "solid-icons/im";
+import { ImArrowDown2 } from "solid-icons/im";
 
 import { useCreateContext } from "../context/Create";
 
@@ -19,7 +19,7 @@ const Reverse = () => {
 
     return (
         <div id="flip-assets" onClick={() => setDirection()}>
-            <ImArrowDown size={14} />
+            <ImArrowDown2 size={14} />
         </div>
     );
 };

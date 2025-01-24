@@ -70,17 +70,17 @@ const App = (props: RouteSectionProps) => {
                             <PayProvider>
                                 <SwapChecker />
                                 <Chatwoot />
-                                <Show when={!isEmbedded()}>
+                                {/* <Show when={!isEmbedded()}>
                                     <Nav
                                         isPro={config.isPro}
                                         network={config.network}
                                     />
-                                </Show>
+                                </Show> */}
                                 {props.children}
                                 <Notification />
-                                <Show when={!isEmbedded()}>
+                                {/* <Show when={!isEmbedded()}>
                                     <Footer />
-                                </Show>
+                                </Show> */}
                             </PayProvider>
                         </CreateProvider>
                     </Web3SignerProvider>

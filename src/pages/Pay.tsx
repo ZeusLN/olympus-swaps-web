@@ -98,9 +98,8 @@ const Pay = () => {
 
                 <Show when={!swap().refundTx}>
                     <Show when={swapStatus()} fallback={<LoadingSpinner />}>
-                        <p>
-                            {t("status")}:{" "}
-                            <span class="btn-small">{status()}</span>
+                        <p class="btn-status">
+                            {t("status")}: <span>{status()}</span>
                         </p>
                         <hr />
                     </Show>

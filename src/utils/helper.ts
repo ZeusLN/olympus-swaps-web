@@ -40,7 +40,7 @@ export const parseBlindingKey = (swap: SomeSwap, isRefund: boolean) => {
     return blindingKey ? Buffer.from(blindingKey, "hex") : undefined;
 };
 
-export const cropString = (str: string, maxLen = 40, subStrSize = 19) => {
+export const cropString = (str: string, maxLen = 65, subStrSize = 19) => {
     if (str.length < maxLen) {
         return str;
     }

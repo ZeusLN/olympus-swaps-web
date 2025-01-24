@@ -13,7 +13,12 @@
 body {
     font-size: 14px;
     margin: 0;
-    background: vars.$background;
+    background: url('../../public/gradient-blue.png') no-repeat center fixed;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
     color: vars.$color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -80,8 +85,8 @@ hr.spacer {
 }
 
 .asset-wrap {
-    background-color: rgb(23, 34, 46);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: transparent;
+    border: 1px solid #a3a3a3;
     position: absolute;
     border-radius: 29px;
     padding: 0px;
@@ -160,6 +165,27 @@ hr.spacer {
         margin-right: 3px;
     }
 }
+.btn-copy {
+    font-size: 14;
+    max-width: 200px;
+    border-radius: 8px;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
+    gap: 8px;
+
+}
+ 
+.btn-status {
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
+    color: var(--primary); /* Use your CSS variable for primary color */
+    margin-top: 6px;
+    padding: 6px 12px; /* Add padding */
+    border-radius: 6px; /* Add border radius */
+    display: inline-block; /* Ensure padding and radius work correctly */
+}
 
 .btn-small {
     background-color: vars.$primary;
@@ -215,11 +241,12 @@ hr.spacer {
 }
 
 .btn-light {
-    color: white;
-    background-color: rgb(11, 22, 35);
+    color:vars.$background;
+    background-color: vars.$primary
 }
 .btn-light:hover {
-    background-color: vars.$primary;
+    background-color: vars.$background;
+    color: vars.$primary;
 }
 .btn-explorer {
     background: #533180;
@@ -247,8 +274,9 @@ hr.spacer {
 }
 .btns {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    // align-items: center;
+    justify-content: space-around;
+    margin-top: 10px,
 }
 .btns-space-between {
     justify-content: space-between;
@@ -296,7 +324,7 @@ input,
 textarea {
     color: rgba(255, 255, 255, 0.3);
     background: rgba(0, 0, 0, 0.3);
-    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border: 1px rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     width: 100%;
     font-size: 15px;
@@ -356,7 +384,7 @@ textarea {
     flex-grow: 0;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 18px;
-    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border: 1px rgba(255, 255, 255, 0.3);
     padding: 0 5px;
     align-items: center;
     display: flex;
@@ -421,18 +449,80 @@ textarea {
     display: none;
 }
 
+/* Center the container on the page */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    width: 100%; 
+    padding: 20px; 
+    box-sizing: border-box;    
+}
+
+/* Style the frame */
 .frame {
+    background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     padding: 12px;
-    min-width: 360px;
-    max-width: 480px;
+    min-width: 800px;
+    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-left: 0;
     border-right: 0;
-    background: #0003;
+    position: relative;
+}
+
+
+/* Style for the input fields */
+.frame input {
+    background: transparent; /* Make the background transparent */
+    border: 2px solid #a3a3a3; /* Add a subtle border */
+    color: #fff; /* Ensure text color is white */
+    padding: 8px 12px; /* Add some padding for better appearance */
+    border-radius: 6px; /* Optional: Add rounded corners */
+    width: 100%; /* Ensure inputs take up full width */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+    outline: none; /* Remove the default focus outline */
+}
+
+/* Style for the input fields on focus */
+.frame input:focus {
+    border: 2px solid #EFC22B; /* Change border color on focus */
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Placeholder text styling */
+.frame input::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Lighten the placeholder text */
+}
+
+/* Style for the textarea */
+textarea {
+    background: transparent; /* Make the background transparent */
+    border: 2px solid #a3a3a3; /* Add a subtle border */
+    color: #fff; /* Ensure text color is white */
+    padding: 8px 12px; /* Add some padding for better appearance */
+    border-radius: 4px; /* Optional: Add rounded corners */
+    width: 100%; /* Ensure it takes up the full width */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+    outline: none; /* Remove the default focus outline */
+    resize: vertical; /* Allow vertical resizing */
+    font-family: inherit; /* Use the same font as the rest of the page */
+    font-size: inherit; /* Use the same font size as the rest of the page */
+}
+
+/* Style for the textarea on focus */
+textarea:focus {
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #EFC22B; /* Change border color on focus */
+}
+
+/* Optional: Placeholder text styling */
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Lighten the placeholder text */
 }
 
 @media (min-width: 488px) {
@@ -455,9 +545,9 @@ textarea {
     width: 32px;
     height: 32px;
     padding: 8px;
-    background: rgb(11, 22, 35);
+    background: transparent;
     margin: -21px auto;
-    border: 1px dashed rgb(55, 55, 55);
+    border: 10px  rgb(55, 55, 55);
     border-radius: 6px;
     cursor: pointer;
     z-index: 1;
@@ -600,7 +690,7 @@ textarea {
     background-color: #545c65;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 7px;
-    padding: 10px;
+    padding: 10px 32px 10px 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
