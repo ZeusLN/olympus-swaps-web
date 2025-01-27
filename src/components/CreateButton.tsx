@@ -67,7 +67,9 @@ export const CreateButton = () => {
         useWeb3Signer();
 
     const [buttonDisable, setButtonDisable] = createSignal(false);
-    const [buttonClass, setButtonClass] = createSignal("btn btn-light"); // Add btn-light class
+    const [buttonClass, setButtonClass] = createSignal(
+        "btn btn-light pp-neue-montreal",
+    ); // Add btn-light class
     const [buttonLabel, setButtonLabel] = createSignal<ButtonLabelParams>({
         key: "create_swap",
     });
@@ -82,7 +84,11 @@ export const CreateButton = () => {
     };
 
     createEffect(() => {
-        setButtonClass(!online() ? "btn btn-danger" : "btn btn-light");
+        setButtonClass(
+            !online()
+                ? "btn btn-danger pp-neue-montreal"
+                : "btn btn-light pp-neue-montreal",
+        );
     });
 
     createEffect(

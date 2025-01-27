@@ -104,25 +104,23 @@ hr.spacer {
 }
 
 .asset-text {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     margin-left: 4px;
 }
 
 .asset-wrap {
     background-color: transparent;
-    border: 1px solid #a3a3a3;
     position: absolute;
-    border-radius: 29px;
+    border-radius: 8px;
     padding: 0px;
     padding-right: 8px;
-    top: 10px;
+    top: 14px;
     left: 10px;
     cursor: pointer;
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.25);
-    }
 }
+
+
 
 .asset-selection {
     display: flex;
@@ -147,8 +145,22 @@ hr.spacer {
     text-align: right;
 }
 .icons > div {
-    margin: 9px 0;
+    margin: 30px 0;
 }
+
+.icons input {
+    height: 58px; 
+    font-size: 40px; 
+}
+
+.icons input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.icons input::placeholder {
+    color: rgba(255, 255, 255, 0.5); 
+}
+
 
 #invoice-qr {
     width: 66.666%;
@@ -313,6 +325,20 @@ hr.spacer {
 }
 .btns .no-grow {
     flex-grow: 0;
+}
+
+.min-max-btn {
+    border: 0.4px solid vars.$primary;
+    background-color:rgba(0, 0, 0, 0.3);
+    padding: 4px 10px 4px;
+    font-size: 12px;
+    border-radius: 4px;
+   
+}
+
+.min-max-btn:hover {
+    background-color:rgba(42, 48, 50, 0.75);
+    cursor: pointer;
 }
 
 .fee {
@@ -605,17 +631,24 @@ textarea::placeholder {
     opacity: 0.5;
 }
 
+
+.icon {
+    width: 26px; 
+    height: 26px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
 .arrow-down {
     border: solid white;
+    border-width: 0 1px 1px 0; 
     display: inline-block;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 4px;
-    margin-left: 8px;
-    position: relative;
+    padding: 3px;
+    margin-left: 6px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    top: -2px;
+    vertical-align: middle; 
 }
 
 .asset-select {

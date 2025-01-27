@@ -328,10 +328,13 @@ const Create = () => {
                     <p class="pp-neue-montreal">{t("create_swap_subline")}</p>
                     <div class="swap-actions">
                         <span class="swap-min pp-neue-montreal">
-                            {t("send")} {t("min")}:{" "}
+                            <strong>
+                                {t("send")} {t("min")}:{" "}
+                            </strong>
+
                             <span
                                 onClick={() => setAmount(minimum())}
-                                class="btn-small btn-light">
+                                class="min-max-btn">
                                 {formatAmount(
                                     BigNumber(minimum()),
                                     denomination(),
@@ -342,10 +345,12 @@ const Create = () => {
                             </span>
                         </span>
                         <span class="swap-max pp-neue-montreal">
-                            {t("send")} {t("max")}:{" "}
+                            <strong>
+                                {t("send")} {t("max")}:{" "}
+                            </strong>
                             <span
                                 onClick={() => setAmount(maximum())}
-                                class="btn-small btn-light">
+                                class="min-max-btn">
                                 {formatAmount(
                                     BigNumber(maximum()),
                                     denomination(),

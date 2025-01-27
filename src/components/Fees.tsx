@@ -130,7 +130,7 @@ const Fees = () => {
             <Denomination />
             <label>
                 {t("network_fee")}:{" "}
-                <span class="network-fee">
+                <span class="network-fee pp-neue-montreal">
                     {formatAmount(
                         BigNumber(minerFee()),
                         denomination(),
