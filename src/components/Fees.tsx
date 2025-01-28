@@ -136,11 +136,9 @@ const Fees = () => {
                         denomination(),
                         separator(),
                         true,
-                    )}
-                    <span
-                        class="denominator"
-                        data-denominator={denomination()}
-                    />
+                    )}{" "}
+                    {denomination() === "btc" && "BTC"}
+                    {denomination() === "sat" && "sats"}
                 </span>
                 <br />
                 {t("fee")} ({boltzFee().toString().replaceAll(".", separator())}
@@ -156,11 +154,9 @@ const Fees = () => {
                         denomination(),
                         separator(),
                         true,
-                    )}
-                    <span
-                        class="denominator"
-                        data-denominator={denomination()}
-                    />
+                    )}{" "}
+                    {denomination() === "btc" && "BTC"}
+                    {denomination() === "sat" && "sats"}
                 </span>
                 <Show when={routingFee() !== undefined}>
                     <br />

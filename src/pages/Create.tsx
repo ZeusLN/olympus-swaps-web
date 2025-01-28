@@ -341,7 +341,7 @@ const Create = () => {
                                     separator(),
                                 )}{" "}
                                 {denomination() === Denomination.Btc && "BTC"}
-                                {denomination() === Denomination.Sat && "SATS"}
+                                {denomination() === Denomination.Sat && "sats"}
                             </span>
                         </span>
                         <span class="swap-max pp-neue-montreal">
@@ -357,7 +357,7 @@ const Create = () => {
                                     separator(),
                                 )}{" "}
                                 {denomination() === Denomination.Btc && "BTC"}
-                                {denomination() === Denomination.Sat && "SATS"}
+                                {denomination() === Denomination.Sat && "sats"}
                             </span>
                         </span>
                     </div>
