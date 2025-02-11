@@ -3,7 +3,7 @@ import { BsGlobe } from "solid-icons/bs";
 import { OcLinkexternal2 } from "solid-icons/oc";
 import { For, Show, createSignal } from "solid-js";
 
-import logo from "../assets/boltz.svg";
+import logo from "../assets/zeus.svg";
 import Warnings from "../components/Warnings";
 import { config } from "../config";
 import { useGlobalContext } from "../context/Global";
@@ -21,7 +21,7 @@ const Nav = (props: { network: string; isPro?: boolean }) => {
             <Warnings />
             <div class="nav-inner">
                 <A id="logo" href="/" onClick={() => setHideHero(false)}>
-                    <img src={logo} alt="boltz.exchange logo" />
+                    <img src={logo} alt="ZEUS logo" />
                 </A>
                 <Show when={props.network !== "mainnet"}>
                     <div id="network" class="btn btn-small">

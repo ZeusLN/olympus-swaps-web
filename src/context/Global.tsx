@@ -206,7 +206,7 @@ const GlobalProvider = (props: { children: JSX.Element }) => {
         if (browser && browserNotification()) {
             new Notification(t("notification_header"), {
                 body: messageStr,
-                icon: "/boltz-icon.svg",
+                icon: "/olympus-icon.svg",
             });
         }
     };
