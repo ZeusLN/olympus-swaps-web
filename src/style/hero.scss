@@ -159,9 +159,17 @@ h3 {
     width: 128px;
     height: 36px;
 }
+.boltz {
+    display: inline-block;
+    background: url(../assets/boltz.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 96px;
+    height: 37px;
+}
 .breez {
     display: inline-block;
-    background: url(../assets/logo-breez-header.svg);
+    background: url(../assets/boltz.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     width: 96px;
@@ -305,7 +313,7 @@ h3 {
     height: 40px;
 }
 
-#partners,
+#poweredby,
 #integrations {
     display: flex;
     justify-content: center;
@@ -314,12 +322,12 @@ h3 {
     margin: 40px 0 122px;
 }
 
-#partners > div,
+#poweredby > div,
 #integrations > div {
     padding: 22px;
 }
 
-#partners > div > a,
+#poweredby > div > a,
 #integrations > div > a:before,
 #integrations > div > a {
     opacity: 0.8;
@@ -327,7 +335,7 @@ h3 {
     transition: opacity 0.4s ease-in-out;
 }
 
-#partners > div > a:hover,
+#poweredby > div > a:hover,
 #integrations > div > a:hover:before,
 #integrations > div > a:hover {
     opacity: 1;

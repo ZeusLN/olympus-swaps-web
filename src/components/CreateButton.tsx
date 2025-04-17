@@ -251,13 +251,19 @@ const CreateButton = () => {
 
     const [buttonDisable, setButtonDisable] = createSignal(false);
     const [loading, setLoading] = createSignal(false);
-    const [buttonClass, setButtonClass] = createSignal("btn");
+    const [buttonClass, setButtonClass] = createSignal(
+        "btn btn-light pp-neue-montreal",
+    ); // Add btn-light class
     const [buttonLabel, setButtonLabel] = createSignal<ButtonLabelParams>({
         key: "create_swap",
     });
 
     createEffect(() => {
-        setButtonClass(!online() ? "btn btn-danger" : "btn");
+        setButtonClass(
+            !online()
+                ? "btn btn-danger pp-neue-montreal"
+                : "btn btn-light pp-neue-montreal",
+        );
     });
 
     createEffect(

@@ -3,22 +3,75 @@
 
 * {
     box-sizing: border-box;
-    font-family: "Noto Sans", sans;
+    font-family: "PP Neue Montreal", sans-serif;
 }
 
 .monospace {
     font-family: "Noto Mono", sans;
 }
 
+/* Define Marlide Display Bold */
+@font-face {
+    font-family: "Marlide Display Bold";
+    src: url("../fonts/Marlide-Display-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Define PP Neue Montreal */
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../fonts/ppneuemontreal-book.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.marlide-font {
+    font-family: "Marlide Display Bold", sans-serif;
+}
+
 body {
     font-size: 14px;
     margin: 0;
-    background: vars.$background;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
     color: vars.$color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    min-height: 100%;
+    padding-top: 60px; /* Ensure content doesn't overlap with fixed nav */
 }
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+        url("../gradient-yellow-red.png") repeat;
+    background-size: cover;
+    animation: moveBackground 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-25%, -25%);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -74,19 +127,17 @@ hr.spacer {
 }
 
 .asset-text {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
-    margin-left: 4px;
 }
 
 .asset-wrap {
-    background-color: rgb(23, 34, 46);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: transparent;
     position: absolute;
-    border-radius: 29px;
+    border-radius: 8px;
     padding: 0px;
     padding-right: 8px;
-    top: 10px;
+    top: 14px;
     left: 10px;
     cursor: pointer;
     &:hover {
@@ -104,6 +155,7 @@ hr.spacer {
 .fees-dyn {
     display: flex;
     justify-content: center;
+    text-align: right;
 }
 .fees-dyn > * {
     flex-grow: 1;
@@ -114,10 +166,21 @@ hr.spacer {
 .fees-dyn,
 .icons > div {
     position: relative;
-    text-align: right;
 }
 .icons > div {
-    margin: 9px 0;
+    margin: 30px 0;
+}
+
+.icons input {
+    height: 58px;
+}
+
+.icons input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.icons input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #invoice-qr {
@@ -147,7 +210,7 @@ hr.spacer {
     margin-top: 10px;
     padding: 8px 12px;
     text-decoration: none;
-    border-radius: 16px;
+    border-radius: 8px;
     background-color: vars.$primary;
     color: #14283f;
     font-weight: bold;
@@ -159,6 +222,26 @@ hr.spacer {
     svg {
         margin-right: 3px;
     }
+}
+.btn-copy {
+    font-size: 14;
+    max-width: 200px;
+    border-radius: 8px;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
+    gap: 8px;
+}
+
+.btn-status {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: vars.$primary;
+    margin-top: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
 }
 
 .btn-small {
@@ -216,11 +299,12 @@ hr.spacer {
 }
 
 .btn-light {
-    color: white;
-    background-color: rgb(11, 22, 35);
+    color: vars.$background;
+    background-color: vars.$primary;
 }
 .btn-light:hover {
-    background-color: vars.$primary;
+    background-color: vars.$background;
+    color: vars.$primary;
 }
 .btn-explorer {
     background: #533180;
@@ -240,7 +324,8 @@ hr.spacer {
 }
 .btn-danger:disabled,
 .btn-danger {
-    background-color: color.adjust(vars.$error, $alpha: -0.42);
+    /* Approximates color.adjust(vars.$error, $alpha: -0.42) assuming $error is #dc3545 */
+    background-color: rgba(220, 53, 69, 0.58);
     color: white;
 }
 .btn-danger:hover {
@@ -249,8 +334,9 @@ hr.spacer {
 .center,
 .btns {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    // align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
 }
 .btns-space-between {
     justify-content: space-between;
@@ -262,6 +348,19 @@ hr.spacer {
 }
 .btns .no-grow {
     flex-grow: 0;
+}
+
+.min-max-btn {
+    border: 0.4px solid vars.$primary;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 4px 10px 4px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.min-max-btn:hover {
+    background-color: rgba(42, 48, 50, 0.75);
+    cursor: pointer;
 }
 
 .fee {
@@ -298,7 +397,7 @@ input,
 textarea {
     color: rgba(255, 255, 255, 0.3);
     background: rgba(0, 0, 0, 0.3);
-    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border: 1px rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     width: 100%;
     font-size: 15px;
@@ -358,7 +457,7 @@ textarea {
     flex-grow: 0;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 18px;
-    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border: 1px rgba(255, 255, 255, 0.3);
     padding: 0 5px;
     align-items: center;
     display: flex;
@@ -454,11 +553,11 @@ textarea {
 .denomination img {
     filter: brightness(10);
     cursor: pointer;
-    width: 28px;
+    width: 0px;
 }
 .denominator {
     filter: brightness(10);
-    width: 15px;
+    width: 0px;
     height: 11px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -473,10 +572,10 @@ textarea {
 }
 
 [data-denominator="btc"] {
-    background-image: url(../assets/btc.svg);
+    background-image: url(/assets/btc.svg); /* Changed to absolute path */
 }
 [data-denominator="sat"] {
-    background-image: url(../assets/sat.svg);
+    background-image: url(/assets/sat.svg); /* Changed to absolute path */
 }
 .denomination .active {
     filter: none;
@@ -489,18 +588,75 @@ textarea {
     display: none;
 }
 
+/* Center the container on the page */
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style the frame */
 .frame {
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     padding: 12px;
     min-width: 360px;
-    max-width: 480px;
+    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-left: 0;
     border-right: 0;
-    background: #0003;
+    position: relative;
+}
+
+/* Style for the input fields */
+.frame input {
+    background: transparent;
+    border: 2px solid #a3a3a3;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Style for the input fields on focus */
+.frame input:focus {
+    border: 2px solid #efc22b;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder text styling */
+.frame input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Style for the textarea */
+textarea {
+    background: transparent;
+    border: 2px solid #a3a3a3;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    resize: vertical;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Style for the textarea on focus */
+textarea:focus {
+    background: rgba(0, 0, 0, 0.1);
+    border: 2px solid #efc22b;
+}
+
+/* Optional: Placeholder text styling */
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 .refund {
     max-width: fit-content;
@@ -519,7 +675,7 @@ textarea {
 
 @media (min-width: 488px) {
     .frame {
-        margin-top: 74px;
+        margin-top: 20px; /* Reduced from 74px to move frame higher */
         margin-bottom: 56px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
@@ -544,7 +700,8 @@ textarea {
 }
 
 .error {
-    background: color.adjust(vars.$error, $alpha: -0.15);
+    /* Approximates color.adjust(vars.$error, $alpha: -0.15) assuming $error is #dc3545 */
+    background: rgba(220, 53, 69, 0.85);
     color: #ddd;
     padding: 6px 10px;
     display: inline-block;
@@ -554,16 +711,17 @@ textarea {
     width: 32px;
     height: 32px;
     padding: 8px;
-    background: rgb(11, 22, 35);
+    background: rgb(20, 40, 63);
     margin: -21px auto;
-    border: 1px dashed rgb(55, 55, 55);
+    border: 10px rgb(55, 55, 55);
     border-radius: 6px;
     cursor: pointer;
     z-index: 1;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
 }
 #flip-assets:hover {
-    background: rgb(20, 40, 63);
+    background: transparent;
+    color: #000;
 }
 
 #flip-assets svg {
@@ -571,17 +729,62 @@ textarea {
     opacity: 0.5;
 }
 
+.icon {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .arrow-down {
     border: solid white;
-    display: inline-block;
     border-width: 0 2px 2px 0;
     display: inline-block;
-    padding: 4px;
-    margin-left: 8px;
-    position: relative;
+    font-weight: bold;
+    padding: 3px;
+    margin-left: 6px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    top: -2px;
+    vertical-align: middle;
+}
+
+.nav-container {
+    background: transparent;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav-left {
+    display: flex;
+    position: absolute;
+    left: 5px;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    gap: 10px;
+    svg {
+        /* Style the home icon */
+        fill: white;
+    }
+}
+
+.logo-small {
+    width: 40px;
+    height: auto;
+}
+
+.nav-right {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
 .asset-select {
@@ -673,7 +876,9 @@ textarea {
     display: inline-block;
     width: auto;
 }
-.network-fee,
+.network-fee {
+    /* Inherits default font */
+}
 .boltz-fee {
     margin-right: 4px;
 }
@@ -784,4 +989,8 @@ header {
 .swap-limits {
     display: inline-flex;
     gap: 0.8rem;
+
+    .btn-small {
+        margin-left: 4px;
+    }
 }

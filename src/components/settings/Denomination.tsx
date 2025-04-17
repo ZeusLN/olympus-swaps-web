@@ -1,5 +1,4 @@
 import btcSvg from "../../assets/btc.svg";
-import satSvg from "../../assets/sat.svg";
 import { BTC } from "../../consts/Assets";
 import { Denomination as Denoms } from "../../consts/Enums";
 import { useGlobalContext } from "../../context/Global";
@@ -47,11 +46,12 @@ const Denomination = () => {
                 class={denomination() == Denoms.Btc ? "active" : ""}
                 alt="denominator"
             />
-            <img
-                src={satSvg}
-                class={denomination() == Denoms.Sat ? "active" : ""}
-                alt="denominator"
-            />
+            <p
+                class={
+                    denomination() == Denoms.Sat ? "active toggle-to-sats" : ""
+                }>
+                sats
+            </p>
         </div>
     );
 

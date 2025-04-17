@@ -93,7 +93,7 @@ const PayOnchain = (props: {
                         {t("open_in_wallet")}
                     </a>
                 </Show>
-                <hr />
+                {/* <hr /> */}
                 <div class="btns" data-testid="pay-onchain-buttons">
                     <Show when={props.expectedAmount > 0}>
                         <CopyButton

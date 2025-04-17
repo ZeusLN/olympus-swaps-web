@@ -1,5 +1,5 @@
 @use "vars";
-$size: 40px;
+$size: 60px;
 #qrcode {
     position: relative;
     span {
@@ -9,12 +9,12 @@ $size: 40px;
         margin-top: calc($size / 2 * -1);
         margin-left: calc($size / 2 * -1);
         width: $size;
-        height: $size;
+        padding: 10px;
+        height: 60px;
         z-index: 1;
         background: white;
-        background-image: vars.$boltz_icon;
+        background-image: vars.$olympus_icon;
         background-size: 100%;
-        border-radius: 50%;
     }
     &[data-asset="BTC"] span {
         background-image: vars.$bitcoin_icon;

@@ -322,10 +322,12 @@ const Create = () => {
         <Show when={wasmSupported()} fallback={<ErrorWasm />}>
             <div class="frame">
                 <SettingsCog />
-                <h2 data-testid="create-swap-title">{t("create_swap")}</h2>
-                {t("create_swap_subline")} <br />
+                <h2 data-testid="create-swap-title" class="marlide-font">
+                    {t("create_swap")}
+                </h2>
+                <p class="pp-neue-montreal">{t("create_swap_subline")}</p>
                 <span class="swap-limits">
-                    <span>
+                    <span class="swap-min pp-neue-montreal">
                         {t("send")} {t("min")}:
                         <span
                             onClick={() => setAmount(minimum())}
@@ -341,8 +343,8 @@ const Create = () => {
                             data-denominator={denomination()}
                         />
                     </span>
-                    <span>
-                        {t("max")}
+                    <span class="swap-max pp-neue-montreal">
+                        {t("max")}:
                         <span
                             onClick={() => setAmount(maximum())}
                             class="btn-small btn-light">
@@ -407,31 +409,31 @@ const Create = () => {
                             onInput={(e) => changeReceiveAmount(e)}
                         />
                     </div>
-                </div>
-                <Fees />
-                <hr class="spacer" />
-                <Show when={assetReceive() === RBTC}>
-                    <ConnectWallet disabled={() => !pairValid()} />
+                    <Fees />
                     <hr class="spacer" />
-                </Show>
-                <Show
-                    when={
-                        swapType() !== SwapType.Submarine &&
-                        assetReceive() !== RBTC
-                    }>
-                    <AddressInput />
-                </Show>
-                <Show when={swapType() === SwapType.Submarine}>
-                    <Show when={webln()}>
-                        <WeblnButton />
+                    <Show when={assetReceive() === RBTC}>
+                        <ConnectWallet disabled={() => !pairValid()} />
                         <hr class="spacer" />
                     </Show>
-                    <InvoiceInput />
-                </Show>
-                <Show when={isMobile() && assetReceive() !== RBTC}>
-                    <QrScan />
-                </Show>
-                <CreateButton />
+                    <Show
+                        when={
+                            swapType() !== SwapType.Submarine &&
+                            assetReceive() !== RBTC
+                        }>
+                        <AddressInput />
+                    </Show>
+                    <Show when={swapType() === SwapType.Submarine}>
+                        <Show when={webln()}>
+                            <WeblnButton />
+                            <hr class="spacer" />
+                        </Show>
+                        <InvoiceInput />
+                    </Show>
+                    <Show when={isMobile() && assetReceive() !== RBTC}>
+                        <QrScan />
+                    </Show>
+                    <CreateButton />
+                </div>
                 <AssetSelect />
                 <SettingsMenu />
             </div>

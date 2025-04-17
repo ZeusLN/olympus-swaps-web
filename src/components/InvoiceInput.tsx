@@ -127,6 +127,11 @@ const InvoiceInput = () => {
 
     return (
         <textarea
+            style={{
+                "margin-top": "6px",
+                "text-align": "left",
+                "font-size": "16px",
+            }}
             required
             ref={inputRef}
             onInput={(e) => validate(e.currentTarget)}

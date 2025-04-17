@@ -176,17 +176,15 @@ const Fees = () => {
             <Denomination />
             <label>
                 {t("network_fee")}:{" "}
-                <span class="network-fee">
+                <span class="network-fee pp-neue-montreal">
                     {formatAmount(
                         BigNumber(minerFee()),
                         denomination(),
                         separator(),
                         true,
-                    )}
-                    <span
-                        class="denominator"
-                        data-denominator={denomination()}
-                    />
+                    )}{" "}
+                    {denomination() === "btc" && "BTC"}
+                    {denomination() === "sat" && "sats"}
                 </span>
                 <br />
                 {t("fee")} ({boltzFee().toString().replaceAll(".", separator())}
@@ -202,11 +200,9 @@ const Fees = () => {
                         denomination(),
                         separator(),
                         true,
-                    )}
-                    <span
-                        class="denominator"
-                        data-denominator={denomination()}
-                    />
+                    )}{" "}
+                    {denomination() === "btc" && "BTC"}
+                    {denomination() === "sat" && "sats"}
                 </span>
                 <Show when={routingFee() !== undefined}>
                     <br />

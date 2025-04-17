@@ -9,7 +9,6 @@ import { Show } from "solid-js";
 import { render } from "solid-js/web";
 
 import Chatwoot from "./chatwoot";
-import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Notification from "./components/Notification";
 import { SwapChecker } from "./components/SwapChecker";
@@ -70,9 +69,9 @@ const App = (props: RouteSectionProps) => {
                             </Show>
                             {props.children}
                             <Notification />
-                            <Show when={!isEmbedded()}>
+                            {/* <Show when={!isEmbedded()}>
                                 <Footer />
-                            </Show>
+                            </Show> */}
                         </RescueProvider>
                     </PayProvider>
                 </CreateProvider>

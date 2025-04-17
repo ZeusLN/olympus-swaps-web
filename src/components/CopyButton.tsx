@@ -15,7 +15,7 @@ const CopyButton = (props: {
 }) => {
     const { t } = useGlobalContext();
 
-    const merged = mergeProps({ btnClass: "btn" }, props);
+    const merged = mergeProps({ btnClass: "btn btn-copy" }, props);
 
     const [buttonClass, setButtonClass] = createSignal<string>("");
     const [buttonActive, setButtonActive] = createSignal<boolean>(false);
