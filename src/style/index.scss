@@ -54,7 +54,7 @@ body {
     height: 200%;
     background:
         linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url("../gradient-yellow-red.png") repeat;
+        url("../background.png") repeat;
     background-size: cover;
     animation: moveBackground 30s linear infinite;
     z-index: -1;
