@@ -36,7 +36,11 @@ const Nav = () => {
                     />
                     <p
                         class="hide-on-mobile"
-                        style={{ "font-size": "18px", margin: 0 }}>
+                        style={{
+                            "font-size": "18px",
+                            margin: 0,
+                            color: "#fff",
+                        }}>
                         Swaps by ZEUS LSP
                     </p>
                 </A>
