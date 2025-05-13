@@ -19,7 +19,6 @@ const Denomination = () => {
                 data-testid="btc-denomination-button"
                 class={denomination() == Denoms.Btc ? "active" : ""}
                 onClick={() => setDenomination(Denoms.Btc)}>
-                <span class="denominator" data-denominator={Denoms.Btc} />
                 <span class="denominator-label">
                     {formatDenomination(Denoms.Btc, BTC)}
                 </span>
@@ -28,7 +27,6 @@ const Denomination = () => {
                 data-testid="sats-denomination-button"
                 class={denomination() == Denoms.Sat ? "active" : ""}
                 onClick={() => setDenomination(Denoms.Sat)}>
-                <span class="denominator" data-denominator={Denoms.Sat} />
                 <span class="denominator-label">
                     {formatDenomination(Denoms.Sat, Denoms.Sat)}
                 </span>
@@ -46,12 +44,12 @@ const Denomination = () => {
                 class={denomination() == Denoms.Btc ? "active" : ""}
                 alt="denominator"
             />
-            <p
+            <span
                 class={
                     denomination() == Denoms.Sat ? "active toggle-to-sats" : ""
                 }>
                 sats
-            </p>
+            </span>
         </div>
     );
 

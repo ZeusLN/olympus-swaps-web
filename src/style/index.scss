@@ -492,7 +492,7 @@ textarea {
     padding: 2px;
     height: fit-content;
     border: 1px dashed rgba(255, 255, 255, 0.2);
-    background: rgb(11, 22, 34);
+    background: rgb(34, 11, 11);
     border-radius: 20px;
     span {
         filter: grayscale(1);
@@ -504,7 +504,7 @@ textarea {
         flex-grow: 0;
         gap: 10px;
         padding: 0.3rem 0.9rem;
-        background: rgb(11, 22, 34);
+        background: rgb(34, 11, 11);
         color: rgba(255, 255, 255, 0.5);
         cursor: pointer;
         position: relative;
@@ -517,13 +517,13 @@ textarea {
             border-radius: 0 20px 20px 0;
         }
         &:hover {
-            background: rgb(20, 40, 63);
+            background: rgb(63, 20, 20);
             color: rgba(255, 255, 255, 0.8);
             border: 1px dashed rgba(255, 175, 75, 0.15);
         }
         &.active {
             color: vars.$primary;
-            background-color: rgb(30, 45, 60);
+            background-color: rgb(60, 30, 30);
             border: 1px dashed rgba(255, 175, 75, 0.2);
             span {
                 filter: none;
@@ -711,7 +711,7 @@ textarea::placeholder {
     width: 32px;
     height: 32px;
     padding: 8px;
-    background: rgb(20, 40, 63);
+    background: rgb(63, 20, 20);
     margin: -21px auto;
     border: 10px rgb(55, 55, 55);
     border-radius: 6px;
