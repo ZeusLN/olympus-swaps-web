@@ -5,6 +5,7 @@ tags
 .env
 *.log
 dist/
+dist.zip
 ts-out/
 coverage/
 node_modules/
@@ -13,3 +14,4 @@ src/config.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+.DS_Store
