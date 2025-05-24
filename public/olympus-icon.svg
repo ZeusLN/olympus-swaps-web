@@ -6,12 +6,6 @@
         fill: #000;
         stroke-width: 0px;
       }
-      @media (prefers-color-scheme: dark) {
-        .cls-1 {
-          fill: #fff;
-          stroke-width: 0px;
-        }
-      }
     </style>
   </defs>
   <g id="Layer_1-2" data-name="Layer 1" transform="translate(123.28,0) scale(-1,1)">
