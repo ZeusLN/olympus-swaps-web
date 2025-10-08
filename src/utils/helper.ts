@@ -22,6 +22,8 @@ import type {
     SubmarineSwap,
 } from "./swapCreator";
 
+export const requestTimeoutDuration = 10_000;
+
 export const isIos = () =>
     !!navigator.userAgent.match(/iphone|ipad/gi) || false;
 
@@ -46,7 +48,7 @@ export const parseBlindingKey = (swap: SomeSwap, isRefund: boolean) => {
     return blindingKey ? Buffer.from(blindingKey, "hex") : undefined;
 };
 
-export const cropString = (str: string, maxLen = 65, subStrSize = 19) => {
+export const cropString = (str: string, maxLen = 40, subStrSize = 19) => {
     if (str.length < maxLen) {
         return str;
     }
@@ -92,39 +94,61 @@ export const getPair = <
 export const fetcher = async <T = unknown>(
     url: string,
     params?: Record<string, unknown>,
+    options?: RequestInit,
 ): Promise<T> => {
-    // We cannot use the context here, so we get the data directly from local storage
-    const referral = localStorage.getItem(referralIdKey) || defaultReferral();
-    let opts: RequestInit = {
-        headers: {
-            referral,
-        },
-    };
+    const controller = new AbortController();
+    const requestTimeout = setTimeout(
+        () => controller.abort(),
+        requestTimeoutDuration,
+    );
 
-    if (params) {
-        opts = {
-            method: "POST",
+    try {
+        // We cannot use the context here, so we get the data directly from local storage
+        const referral =
+            localStorage.getItem(referralIdKey) || defaultReferral();
+
+        let opts: RequestInit = {
             headers: {
-                ...opts.headers,
-                "Content-Type": "application/json",
+                referral,
             },
-            body: JSON.stringify(params),
+            signal: controller.signal,
         };
-    }
 
-    const apiUrl = getApiUrl() + url;
-    const response = await fetch(apiUrl, opts);
-    if (!response.ok) {
-        try {
-            const body = await response.json();
-            return Promise.reject(formatError(body));
-
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (e) {
-            return Promise.reject(response);
+        if (params) {
+            opts = {
+                method: "POST",
+                headers: {
+                    ...(options ? options.headers : opts.headers),
+                    "Content-Type": "application/json",
+                },
+                signal: controller.signal,
+                body: JSON.stringify(params),
+            };
         }
+
+        const apiUrl = getApiUrl() + url;
+        const response = await fetch(apiUrl, options || opts);
+
+        if (!response.ok) {
+            try {
+                const contentType = response.headers.get("content-type");
+                if (contentType?.includes("application/json")) {
+                    const body = await response.json();
+                    return Promise.reject(formatError(body));
+                }
+                return Promise.reject(await response.text());
+
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            } catch (e) {
+                return Promise.reject(response);
+            }
+        }
+        return (await response.json()) as T;
+    } catch (e) {
+        throw new Error(e);
+    } finally {
+        clearTimeout(requestTimeout);
     }
-    return (await response.json()) as T;
 };
 
 export const parsePrivateKey = (
@@ -144,30 +168,4 @@ export const parsePrivateKey = (
         // When the private key is not HEX, we try to decode it as WIF
         return ECPair.fromWIF(privateKeyHex);
     }
-};
-
-// posts transaction to a block explorer
-export const broadcastToExplorer = async (
-    asset: string,
-    txHex: string,
-): Promise<{ id: string }> => {
-    const basePath = chooseUrl(config.assets[asset].blockExplorerUrl);
-    const response = await fetch(`${basePath}/api/tx`, {
-        method: "POST",
-        body: txHex,
-    });
-
-    if (!response.ok) {
-        try {
-            const body = await response.json();
-            throw formatError(body);
-        } catch {
-            // If parsing JSON fails, throw a generic error with status text
-            throw response.statusText;
-        }
-    }
-
-    return {
-        id: await response.text(),
-    };
 };

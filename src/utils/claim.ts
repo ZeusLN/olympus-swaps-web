@@ -8,6 +8,8 @@ import log from "loglevel";
 import { LBTC, RBTC } from "../consts/Assets";
 import { SwapType } from "../consts/Enums";
 import type { deriveKeyFn } from "../context/Global";
+import type { RescueFile } from "../utils/rescueFile";
+import { deriveKey } from "../utils/rescueFile";
 import type { TransactionInterface } from "./boltzClient";
 import {
     broadcastTransaction,
@@ -51,9 +53,11 @@ const createAdjustedClaim = async <
     for (const details of claimDetails) {
         inputSum += await getOutputAmount(asset, details);
     }
+
     const feeBudget = Math.floor(inputSum - swap.receiveAmount);
 
     const constructClaimTransaction = getConstructClaimTransaction(asset);
+
     return constructClaimTransaction(
         claimDetails as ClaimDetails[] | LiquidClaimDetails[],
         destination,
@@ -86,6 +90,11 @@ const claimReverseSwap = async (
     const tree = SwapTreeSerializer.deserializeSwapTree(swap.swapTree);
     const tweakedKey = tweakMusig(asset, musig, tree.tree);
     const swapOutput = detectSwap(tweakedKey, lockupTx);
+
+    if (swapOutput === undefined) {
+        throw new Error("Swap output is undefined");
+    }
+
     const details = [
         {
             ...swapOutput,
@@ -303,7 +312,6 @@ export const claim = async <T extends ReverseSwap | ChainSwap>(
     swap: T,
     swapStatusTransaction: { hex: string },
     cooperative: boolean,
-    externalBroadcast: boolean,
 ): Promise<T | undefined> => {
     const asset = getRelevantAssetForSwap(swap);
     if (asset === RBTC) {
@@ -332,11 +340,7 @@ export const claim = async <T extends ReverseSwap | ChainSwap>(
     }
 
     log.debug("Broadcasting claim transaction");
-    const res = await broadcastTransaction(
-        asset,
-        claimTransaction.toHex(),
-        externalBroadcast,
-    );
+    const res = await broadcastTransaction(asset, claimTransaction.toHex());
     log.debug("Claim transaction broadcast result", res);
 
     if (res.id) {
@@ -385,4 +389,13 @@ export const createSubmarineSignature = async (
         musig.getPublicNonce(),
         musig.signPartial(),
     );
+};
+
+export const derivePreimageFromRescueKey = (
+    rescueKey: RescueFile,
+    keyIndex: number,
+): Buffer => {
+    const privateKey = deriveKey(rescueKey, keyIndex).privateKey;
+
+    return crypto.sha256(Buffer.from(privateKey));
 };

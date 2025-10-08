@@ -51,6 +51,14 @@ export default defineConfig({
     server: {
         https: true,
         cors: { origin: "*" },
+        proxy: {
+            "/api": {
+                // CORRECTED LINE: Remove "/api" from the end of the target URL
+                target: "https://swaps.zeuslsp.com",
+                changeOrigin: true,
+                secure: false,
+            },
+        },
     },
     build: {
         commonjsOptions: {

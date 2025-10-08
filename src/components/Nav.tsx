@@ -1,9 +1,13 @@
 import { A } from "@solidjs/router";
 import { AiFillHome } from "solid-icons/ai";
+import { OcLinkexternal2 } from "solid-icons/oc";
 
 import logo from "../assets/olympus-z-white.svg";
+import { useGlobalContext } from "../context/Global";
 
 const Nav = () => {
+    const { t } = useGlobalContext();
+
     return (
         <div
             style={{
@@ -43,6 +47,110 @@ const Nav = () => {
                         }}>
                         Swaps by ZEUS LSP
                     </p>
+                </A>
+            </div>
+
+            <div
+                style={{
+                    padding: "16px 0",
+                    display: "flex",
+                    "align-items": "center",
+                    "justify-content": "center",
+                    gap: "16px",
+                }}>
+                <A
+                    href="/swap"
+                    style={{
+                        color: "#fff",
+                        "text-decoration": "none",
+                        "font-size": "18px",
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "yellow";
+                        e.currentTarget.style.textDecoration = "underline";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#fff";
+                        e.currentTarget.style.textDecoration = "none";
+                    }}>
+                    {t("swap")}
+                </A>
+
+                <div
+                    style={{
+                        width: "1px",
+                        height: "20px",
+                        "background-color": "#fff",
+                    }}
+                />
+                <A
+                    href="/rescue"
+                    style={{
+                        color: "#fff",
+                        "text-decoration": "none",
+                        "font-size": "18px",
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "#efc22b";
+                        e.currentTarget.style.textDecoration = "underline";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#fff";
+                        e.currentTarget.style.textDecoration = "none";
+                    }}>
+                    {t("rescue")}
+                </A>
+
+                <div
+                    style={{
+                        width: "1px",
+                        height: "20px",
+                        "background-color": "#fff",
+                    }}
+                />
+                <A
+                    href="/history"
+                    style={{
+                        color: "#fff",
+                        "text-decoration": "none",
+                        "font-size": "18px",
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "yellow";
+                        e.currentTarget.style.textDecoration = "underline";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#fff";
+                        e.currentTarget.style.textDecoration = "none";
+                    }}>
+                    {t("history")}
+                </A>
+                <div
+                    style={{
+                        width: "1px",
+                        height: "20px",
+                        "background-color": "#fff",
+                    }}
+                />
+                <A
+                    href="https://docs.zeusln.app/swaps/intro"
+                    class="external"
+                    target="_blank"
+                    style={{
+                        color: "#fff",
+                        "text-decoration": "none",
+                        "font-size": "18px",
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = "yellow";
+                        e.currentTarget.style.textDecoration = "underline";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = "#fff";
+                        e.currentTarget.style.textDecoration = "none";
+                    }}>
+                    {t("documentation")}
+                    <OcLinkexternal2 size={24} />
                 </A>
             </div>
 
