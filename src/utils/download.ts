@@ -2,7 +2,7 @@ export const rescueFileTypes =
     "application/json,image/png,imagine/jpg,image/jpeg";
 
 export const getBackupFileName = (): string => {
-    return `boltz-backup-${Math.floor(Date.now() / 1000)}-SECRET_DO_NOT_SHARE`;
+    return `zeus-backup-${Math.floor(Date.now() / 1000)}-SECRET_DO_NOT_SHARE`;
 };
 
 export const download = (file: string, content: string) => {

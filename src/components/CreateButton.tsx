@@ -35,6 +35,11 @@ import LoadingSpinner from "./LoadingSpinner";
 // In milliseconds
 const invoiceFetchTimeout = 25_000;
 
+export const enum BackupDone {
+    True = "true",
+    False = "false",
+}
+
 export const getClaimAddress = async (
     assetReceive: Accessor<string>,
     signer: Accessor<Signer>,

@@ -79,6 +79,8 @@ const dict = {
         invoice_payment_failure: "Could not pay your lightning invoice",
         onchain_address: "Enter {{ asset }} address",
         onchain_address_no_asset: "Enter address",
+        rescue: "Rescue",
+
         invalid_refund_file: "Invalid rescue key",
         invalid_backup_file: "Invalid backup file",
         invalid_invoice: "Please provide a valid invoice, offer or LNURL",
@@ -90,7 +92,7 @@ const dict = {
         copied: "Copied!",
         refund_swap: "Refund Swap",
         refund_a_swap_subline:
-            "Upload your rescue key to refund a swap that is not available in this browser’s swap history.",
+            "Upload your rescue key to rescue a swap that is not available in this browser’s swap history.",
         refund_past_swaps: "Past swaps",
         refund_past_swaps_subline:
             "Swaps that got saved into your browsers storage",
@@ -241,7 +243,8 @@ const dict = {
         verify_boltz_rescue_key: "Verify ZEUS Swaps Rescue Key",
         verify_boltz_rescue_key_subline:
             "Please select your previously downloaded ZEUS Swaps Rescue Key to verify its correctness.",
-        verify_key: "Verify Existing Key",
+        verify_key: "Verify key",
+        verify_existing_key: "Verify existing key",
         verify_key_failed:
             "Verification of the ZEUS Swaps Rescue Key failed. We recommend downloading a new ZEUS Swaps Rescue Key to continue.",
         rescue_key: "Rescue Key",
@@ -252,6 +255,46 @@ const dict = {
         back: "Back",
         next: "Next",
         pagination_info: "Page {{ start }} of {{ end }}",
+        in_progress: "In progress",
+        claim: "Claim",
+        completed: "Completed",
+        rescue_swap: "Rescue Swap",
+        enter_mnemonic: "Enter rescue key",
+        copy_rescue_key: "Copy rescue key",
+        no_rescuable_swaps: "No rescuable swaps found in your browser history",
+        rescue_external_explainer:
+            "Try rescuing an external swap via rescue key and other emergency methods.",
+        rescue_external_swap: "Rescue External Swap",
+        get_rescue_key_subline:
+            "To continue, please select if you want to generate a new Rescue Key or verify an existing one.",
+        backup_rescue_key: "Backup Rescue Key",
+        generate_key: "Generate new key",
+        backup_rescue_key_subline_second:
+            "This new key works on any device and works for all swaps created with it.",
+        backup_rescue_key_reminder: "Keep this safe. Do not share.",
+        backup_rescue_key_subline_third:
+            "Please write down or copy this key and store it in a secure and permanent location.",
+        user_saved_key: "I have saved the rescue key",
+        verify_rescue_key_mnemonic:
+            "Please enter your rescue key below to import it.",
+        hint_paste_mnemonic: "Hint: you can paste all 12 words at once.",
+        claim_swap: "Claim: {{ id }}",
+        claimed: "Swap has been claimed successfully!",
+        failed_get_swap: "Could not get swap {{ id }}",
+        failed_get_swap_subline:
+            "Please re-insert the rescue key and try again.",
+        verify_mnemonic_word: {
+            start: "What is the word at ",
+            strong: "position {{ number }}",
+            end: " of your rescue key?",
+        },
+        incorrect_word: "Incorrect word. Please double-check your rescue key.",
+        rescue_a_swap_subline:
+            "If you sent BTC or L-BTC into a Boltz swap, upload or enter your rescue key to rescue a swap that is not available in this browser’s swap history.",
+        rescue_a_swap_mnemonic:
+            "Enter your rescue key to rescue a swap that is not available in this browser’s swap history.",
+        get_refundable_error:
+            "Failed to load UTXO data. Refresh to try again or check your internet connection if the problem persists.",
     },
     de: {
         language: "Deutsch",
@@ -301,7 +344,8 @@ const dict = {
         create_channel: "Erstelle Lightning-Kanal",
         create_channel_subline: "Eingehende oder ausgehende Kapazität",
         create_swap: "Erstelle Atomic Swap",
-        create_swap_subline: "Zahlung beinhaltet Netzwerk- und ZEUS Swapsgebühr",
+        create_swap_subline:
+            "Zahlung beinhaltet Netzwerk- und ZEUS Swapsgebühr",
         cancel_swap: "Swap abbrechen",
         new_swap: "Neuer Swap",
         success_swap: "Swap erfolgreich!",

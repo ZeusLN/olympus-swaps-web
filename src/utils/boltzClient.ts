@@ -2,10 +2,12 @@ import type { Transaction } from "bitcoinjs-lib";
 import { Musig } from "boltz-core";
 import { Buffer } from "buffer";
 import type { Transaction as LiquidTransaction } from "liquidjs-lib";
+import log from "loglevel";
 
 import { config } from "../config";
 import { SwapType } from "../consts/Enums";
-import { broadcastToExplorer, fetcher } from "./helper";
+import { broadcastToExplorer } from "./blockchain";
+import { fetcher } from "./helper";
 import { validateInvoiceForOffer } from "./invoice";
 
 const cooperativeErrorMessage = "cooperative signatures for swaps are disabled";
@@ -33,6 +35,7 @@ type PairType = {
 type SubmarinePairTypeTaproot = PairType & {
     limits: PairLimits & {
         maximalZeroConf: number;
+        minimalBatched?: number;
     };
     fees: {
         minerFees: number;
@@ -166,18 +169,28 @@ type ChainSwapTransaction = {
 
 type TransactionInterface = Transaction | LiquidTransaction;
 
-export type RescuableSwap = {
-    id: string;
-    type: SwapType;
+type RestorableSwapDetails = {
     tree: SwapTree;
-    status: string;
-    symbol: string;
     keyIndex: number;
-    blindingKey?: string;
     lockupAddress: string;
     serverPublicKey: string;
+    timeoutBlockHeight: number;
+    blindingKey?: string;
+    amount?: number;
     transaction?: { id: string; vout: number };
+    preimageHash?: string;
+};
+
+export type RestorableSwap = {
+    id: string;
+    type: SwapType;
+    status: string;
+    from: string;
+    to: string;
     createdAt: number;
+    claimPrivateKey?: string;
+    claimDetails?: RestorableSwapDetails;
+    refundDetails?: RestorableSwapDetails;
 };
 
 export type LockupTransaction = {
@@ -187,11 +200,21 @@ export type LockupTransaction = {
     timeoutEta?: number;
 };
 
-export const getPairs = async (): Promise<Pairs> => {
+export type SwapStatus = {
+    status: string;
+    failureReason?: string;
+    zeroConfRejected?: boolean;
+    transaction?: {
+        id: string;
+        hex: string;
+    };
+};
+
+export const getPairs = async (options?: RequestInit): Promise<Pairs> => {
     const [submarine, reverse, chain] = await Promise.all([
-        fetcher<SubmarinePairsTaproot>("/v2/swap/submarine"),
-        fetcher<ReversePairsTaproot>("/v2/swap/reverse"),
-        fetcher<ChainPairsTaproot>("/v2/swap/chain"),
+        fetcher<SubmarinePairsTaproot>("/v2/swap/submarine", null, options),
+        fetcher<ReversePairsTaproot>("/v2/swap/reverse", null, options),
+        fetcher<ChainPairsTaproot>("/v2/swap/chain", null, options),
     ]);
 
     return {
@@ -215,6 +238,19 @@ export const fetchBolt12Invoice = async (
     await validateInvoiceForOffer(offer, res.invoice);
 
     return res;
+};
+
+export const fetchBip21Invoice = async (invoice: string) => {
+    try {
+        log.debug("Fetching BIP21 for invoice", invoice);
+        const res = await fetcher<{ bip21: string; signature: string }>(
+            `/v2/swap/reverse/${invoice}/bip21`,
+        );
+        return res;
+    } catch {
+        log.debug("No BIP21 found for invoice");
+        return null;
+    }
 };
 
 export const createSubmarineSwap = (
@@ -376,7 +412,6 @@ export const getContracts = () =>
 export const broadcastTransaction = async (
     asset: string,
     txHex: string,
-    externalBroadcast: boolean = false,
 ): Promise<{
     id: string;
 }> => {
@@ -386,11 +421,8 @@ export const broadcastTransaction = async (
         fetcher<{ id: string }>(`/v2/chain/${asset}/transaction`, {
             hex: txHex,
         }),
+        broadcastToExplorer(asset, txHex),
     ];
-
-    if (externalBroadcast) {
-        promises.push(broadcastToExplorer(asset, txHex));
-    }
 
     const results = await Promise.allSettled(promises);
     const successfulResult = results.find(
@@ -440,15 +472,7 @@ export const getReverseTransaction = (id: string) =>
     }>(`/v2/swap/reverse/${id}/transaction`);
 
 export const getSwapStatus = (id: string) =>
-    fetcher<{
-        status: string;
-        failureReason?: string;
-        zeroConfRejected?: boolean;
-        transaction?: {
-            id: string;
-            hex: string;
-        };
-    }>(`/v2/swap/${id}`);
+    fetcher<SwapStatus>(`/v2/swap/${id}`);
 
 export const getChainSwapClaimDetails = (id: string) =>
     fetcher<{
@@ -489,8 +513,8 @@ export const acceptChainSwapNewQuote = (id: string, amount: number) =>
 export const getSubmarinePreimage = (id: string) =>
     fetcher<{ preimage: string }>(`/v2/swap/submarine/${id}/preimage`);
 
-export const getRescuableSwaps = (xpub: string) =>
-    fetcher<RescuableSwap[]>(`/v2/swap/rescue`, { xpub });
+export const getRestorableSwaps = (xpub: string) =>
+    fetcher<RestorableSwap[]>(`/v2/swap/restore`, { xpub });
 
 export {
     Pairs,
