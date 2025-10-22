@@ -3,11 +3,12 @@ import { baseConfig, chooseUrl } from "src/configs/base";
 
 const config = {
     ...baseConfig,
-    // torUrl: "http://boltzzzbnus4m7mta3cxmflnps4fp7dueu2tgurstbvrbt6xswzcocyd.onion/",
+    torUrl: "http://vsi7wnnknx2mlryo4mmehf5smfsiqy6kkzbkiu4pz7xaocvzceeccqyd.onion/",
     network: "mainnet",
     loglevel: "debug",
     apiUrl: {
         normal: "https://swaps.zeuslsp.com/api",
+        tor: "http://vsi7wnnknx2mlryo4mmehf5smfsiqy6kkzbkiu4pz7xaocvzceeccqyd.onion/api",
     },
     assets: {
         BTC: {
@@ -26,44 +27,6 @@ const config = {
                 },
             ],
         },
-        // "L-BTC": {
-        //     blockExplorerUrl: {
-        //         normal: "https://blockstream.info/liquid",
-        //         tor: "http://explorerzydxu5ecjrkwceayqybizmpjjznk5izmitf2modhcusuqlid.onion/liquid",
-        //     },
-        //     blockExplorerApis: [
-        //         {
-        //             normal: "https://blockstream.info/liquid/api",
-        //             tor: "http://explorerzydxu5ecjrkwceayqybizmpjjznk5izmitf2modhcusuqlid.onion/liquid/api",
-        //         },
-        //         {
-        //             normal: "https://liquid.network/api",
-        //             tor: "http://liquidmom47f6s3m53ebfxn47p76a6tlnxib3wp6deux7wuzotdr6cyd.onion/api",
-        //         },
-        //     ],
-        // },
-        // RBTC: {
-        //     blockExplorerUrl: {
-        //         normal: "https://rootstock.blockscout.com",
-        //     },
-        //     network: {
-        //         chainName: "Rootstock",
-        //         chainId: 30,
-        //         rpcUrls: ["https://public-node.rsk.co"],
-        //         nativeCurrency: {
-        //             name: "RBTC",
-        //             symbol: "RBTC",
-        //             decimals: 18,
-        //         },
-        //     },
-        //     rifRelay: "https://boltz.mainnet.relay.rifcomputing.net",
-        //     contracts: {
-        //         deployHeight: 6747215,
-        //         smartWalletFactory:
-        //             "0x44944a80861120B58cc48B066d57cDAf5eC213dd",
-        //         deployVerifier: "0xc0F5bEF6b20Be41174F826684c663a8635c6A081",
-        //     },
-        // },
     },
 } as Config;
 
