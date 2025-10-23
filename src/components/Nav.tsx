@@ -1,9 +1,11 @@
 import { A } from "@solidjs/router";
 import { AiFillHome } from "solid-icons/ai";
 import { OcLinkexternal2 } from "solid-icons/oc";
-import { createSignal } from "solid-js";
+import { Show, createSignal } from "solid-js";
 
 import logo from "../assets/olympus-z-white.svg";
+import torIcon from "../assets/tor.svg";
+import { config } from "../config";
 import { useGlobalContext } from "../context/Global";
 import "../style/nav.scss";
 
@@ -29,14 +31,32 @@ const Nav = () => {
                 <div class="separator" />
                 <A href="/history">{t("history")}</A>
                 <div class="separator" />
-                <A href="https://docs.zeusln.app/swaps/intro" target="_blank">
+
+                <A
+                    href="https://docs.zeusln.app/swaps/intro"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     {t("documentation")}
                     <OcLinkexternal2 size={24} />
                 </A>
+
+                <Show when={config.torUrl}>
+                    <div class="separator" />
+                    <a
+                        href={config.torUrl}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        {t("onion")}
+                        <img src={torIcon} alt="Onion Icon" class="tor-icon" />
+                    </a>
+                </Show>
             </div>
 
             <div class="desktop-home-icon">
-                <A href="https://olympusln.com">
+                <A
+                    href="https://olympusln.com"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     <AiFillHome size={25} color="white" />
                 </A>
             </div>
@@ -63,10 +83,29 @@ const Nav = () => {
                     <A
                         href="https://docs.zeusln.app/swaps/intro"
                         target="_blank"
+                        rel="noopener noreferrer"
                         onClick={closeMenu}>
                         {t("documentation")} <OcLinkexternal2 size={24} />
                     </A>
-                    <A href="https://olympusln.com" onClick={closeMenu}>
+                    <Show when={config.torUrl}>
+                        <a
+                            href={config.torUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={closeMenu}>
+                            {t("onion")}
+                            <img
+                                src={torIcon}
+                                alt="Onion Icon"
+                                class="tor-icon"
+                            />
+                        </a>
+                    </Show>
+                    <A
+                        href="https://olympusln.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={closeMenu}>
                         <AiFillHome size={25} color="white" /> Home
                     </A>
                 </div>
