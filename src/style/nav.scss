@@ -135,3 +135,17 @@
         }
     }
 }
+
+.desktop-nav-links a img.tor-icon {
+    height: 22px;
+    width: auto;
+    margin-left: 4px;
+    filter: brightness(0) invert(1);
+}
+
+.mobile-nav-overlay a img.tor-icon {
+    height: 24px;
+    width: auto;
+    filter: brightness(0) invert(1);
+}
+
