@@ -49,6 +49,7 @@ export type notifyFn = (
 export type GlobalContextType = {
     online: Accessor<boolean>;
     setOnline: Setter<boolean>;
+    apiError: Accessor<string>;
     pairs: Accessor<Pairs | undefined>;
     setPairs: Setter<Pairs | undefined>;
     wasmSupported: Accessor<boolean>;
@@ -136,6 +137,7 @@ const GlobalContext = createContext<GlobalContextType>();
 
 const GlobalProvider = (props: { children: JSX.Element }) => {
     const [online, setOnline] = createSignal<boolean>(true);
+    const [apiError, setApiError] = createSignal<string>("");
     const [pairs, setPairs] = createSignal<Pairs | undefined>(undefined);
 
     const [wasmSupported, setWasmSupported] = createSignal<boolean>(true);
@@ -287,9 +289,19 @@ const GlobalProvider = (props: { children: JSX.Element }) => {
             const data = await getPairs();
             log.debug("getpairs", data);
             setOnline(true);
+            setApiError("");
             setPairs(data);
         } catch (error) {
             log.debug(error);
+            let parsed = error;
+            if (typeof error === "string") {
+                try {
+                    parsed = JSON.parse(error);
+                } catch {
+                    // not JSON, use as-is
+                }
+            }
+            setApiError(formatError(parsed));
             setOnline(false);
         }
     };
@@ -436,6 +448,7 @@ const GlobalProvider = (props: { children: JSX.Element }) => {
             value={{
                 online,
                 setOnline,
+                apiError,
                 pairs,
                 setPairs,
                 wasmSupported,
