@@ -71,7 +71,7 @@
         "boltz-core": "^3.0.0",
         "buffer": "^6.0.3",
         "create-hmac": "^1.1.7",
-        "ecpair": "^3.0.0",
+        "ecpair": "^3.0.1",
         "ethers": "^6.13.5",
         "iframe-resizer": "^5.4.3",
         "liquidjs-lib": "^6.0.2-liquid.37",
