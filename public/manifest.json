@@ -1,6 +1,6 @@
 {
-    "short_name": "Boltz",
-    "name": "Boltz",
+    "short_name": "ZEUS Swaps",
+    "name": "ZEUS Swaps",
     "icons": [
         {
             "src": "android-chrome-144x144.png",
@@ -26,6 +26,6 @@
     "orientation": "portrait",
     "start_url": "./swap",
     "display": "standalone",
-    "theme_color": "#e6c826",
-    "background_color": "#14283f"
+    "theme_color": "#ffa900",
+    "background_color": "#000000"
 }

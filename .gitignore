@@ -19,3 +19,5 @@ index.html
 .index-build-cache
 .vercel
 .eslintcache
+dist.zip
+.DS_Store
