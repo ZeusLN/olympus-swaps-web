@@ -12,13 +12,10 @@ const Asset = (props: {
     signal: Accessor<string>;
     disabled?: boolean;
 }) => {
-    const { bitcoinOnly, notify, t } = useGlobalContext();
+    const { bitcoinOnly } = useGlobalContext();
 
     const openSelect = () => {
         if (props.disabled || bitcoinOnly()) {
-            if (bitcoinOnly()) {
-                notify("error", t("bitcoin_only_warning"));
-            }
             return;
         }
         setAssetSelected(props.side);
