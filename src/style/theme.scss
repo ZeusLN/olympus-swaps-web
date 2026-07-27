@@ -2,7 +2,7 @@ $lightning_icon: url(../assets/lightning-icon.svg);
 $bitcoin_icon: url(../assets/bitcoin-icon.svg);
 $liquid_icon: url(../assets/liquid-icon.svg);
 $rbtc_icon: url(../assets/rbtc-icon.svg);
-$boltz_icon: url(/boltz-icon.svg);
+$boltz_icon: url(/olympus-icon.svg);
 
 :root {
     --border-radius-sm: 8px;
@@ -88,42 +88,42 @@ $boltz_icon: url(/boltz-icon.svg);
 }
 
 :root[boltz-theme="default"] {
-    --color-primary: #e8cb2b;
+    --color-primary: #ffa900;
     --color-primary-60: color-mix(
         in srgb,
         var(--color-primary) 60%,
         transparent
     );
-    --color-primary-lighter: #fee86b;
+    --color-primary-lighter: #ffc14d;
     --color-primary-glow: color-mix(
         in srgb,
         var(--color-primary) 40%,
         transparent
     );
 
-    --color-secondary-100: #d0d4d9;
-    --color-secondary-200: #a1a9b2;
-    --color-secondary-300: #727e8c;
-    --color-secondary-500: #1e2d3c;
-    --color-secondary-600: #12253a;
-    --color-secondary-700: #0f1f30;
-    --color-secondary-800: #091625;
-    --color-secondary-900: #09141f;
+    --color-secondary-100: #d9d9d9;
+    --color-secondary-200: #ababab;
+    --color-secondary-300: #7d7d7d;
+    --color-secondary-500: #262626;
+    --color-secondary-600: #1a1a1a;
+    --color-secondary-700: #131313;
+    --color-secondary-800: #0c0c0c;
+    --color-secondary-900: #070707;
 
     --color-tertiary: #533180;
 
-    --color-text: #d7dee4;
-    --color-dark-gray: #17222e;
-    --color-hero-gradient-1: #eac806;
-    --color-hero-gradient-2: #2084f6;
+    --color-text: #e6e6e6;
+    --color-dark-gray: #1c1c1c;
+    --color-hero-gradient-1: #ffa900;
+    --color-hero-gradient-2: #ff6b00;
     --color-error-500: #8b0000;
     --color-error-700: #530000;
     --color-success-400: #419a41;
     --color-success-500: #246c24;
     --color-success-700: #003300;
 
-    --color-link: #4fadc2;
-    --color-link-hover: #70cde2;
+    --color-link: #ffa900;
+    --color-link-hover: #ffc14d;
     --color-link-glow: color-mix(
         in srgb,
         var(--color-link-hover) 80%,

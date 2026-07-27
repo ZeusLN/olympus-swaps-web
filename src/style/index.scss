@@ -3,20 +3,38 @@
 @use "theme";
 @use "notfound";
 
+@font-face {
+    font-family: "Marlide Display Bold";
+    src: url("../fonts/Marlide-Display-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../fonts/ppneuemontreal-book.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "PP Neue Montreal", sans-serif;
 }
 
 .monospace {
     font-family: "Noto Mono", monospace;
 }
 
+.marlide-font {
+    font-family: "Marlide Display Bold", sans-serif;
+}
+
 body {
     font-size: 14px;
     line-height: 1.45;
     margin: 0;
-    background: var(--color-secondary-600);
+    background: transparent;
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -24,6 +42,34 @@ body {
     transition: background-color 0.3s ease-in;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background:
+        linear-gradient(var(--color-black-10), var(--color-black-10)),
+        url("/background.png") repeat;
+    background-size: cover;
+    animation: move-background 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes move-background {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-25%, -25%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
 }
 ::selection {
     background: var(--color-primary);
