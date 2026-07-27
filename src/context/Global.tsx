@@ -541,7 +541,7 @@ const GlobalProvider = (props: {
 
     const [bitcoinOnly, setBitcoinOnly] = makePersisted(
         // eslint-disable-next-line solid/reactivity
-        createSignal<boolean>(false),
+        createSignal<boolean>(config.defaultBitcoinOnly),
         {
             name: "bitcoinOnly",
         },

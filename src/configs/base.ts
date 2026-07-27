@@ -18,6 +18,9 @@ const defaults = {
     // **Should only be enabled for testing purposes**
     cooperativeDisabled: false,
 
+    // Default for the "bitcoin only" mode; ZEUS mainnet forces this on
+    defaultBitcoinOnly: false,
+
     preventReloadOnPendingSwaps: true,
 
     loglevel: "info" as log.LogLevelDesc,

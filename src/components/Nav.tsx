@@ -4,9 +4,9 @@ import { IoLanguage } from "solid-icons/io";
 import { OcLinkexternal2 } from "solid-icons/oc";
 import { For, Show, createSignal, onCleanup, onMount } from "solid-js";
 
-import Warnings from "../components/Warnings";
 import logo from "../assets/olympus-z-white.svg";
 import torIcon from "../assets/tor.svg";
+import Warnings from "../components/Warnings";
 import { config } from "../config";
 import { useGlobalContext } from "../context/Global";
 import locales from "../i18n/i18n";
@@ -105,15 +105,17 @@ const Nav = (props: { network: string; isPro?: boolean }) => {
                         {t("docs")}
                         <OcLinkexternal2 size={23} />
                     </ExternalLink>
-                    <Show when={config.torUrl}>
-                        <ExternalLink class="external" href={config.torUrl}>
-                            {t("onion")}
-                            <img
-                                src={torIcon}
-                                alt="Tor onion service"
-                                class="tor-icon"
-                            />
-                        </ExternalLink>
+                    <Show when={config.torUrl} keyed>
+                        {(torUrl) => (
+                            <ExternalLink class="external" href={torUrl}>
+                                {t("onion")}
+                                <img
+                                    src={torIcon}
+                                    alt="Tor onion service"
+                                    class="tor-icon"
+                                />
+                            </ExternalLink>
+                        )}
                     </Show>
                     <ExternalLink
                         class="external"

@@ -458,7 +458,8 @@ const dict = {
             "Built-in wallet system and comprehensive API for seamless integration into your infrastructure.",
         boltz_client_cli_second_paragraph:
             "Monitor, control, and automate everything from the command line or your own applications.",
-        boltz_client_cta_title: "Ready to add ZEUS Swaps to your infrastructure?",
+        boltz_client_cta_title:
+            "Ready to add ZEUS Swaps to your infrastructure?",
         boltz_client_cta_subtitle:
             "Join enterprises and node runners trusting Boltz Client",
 

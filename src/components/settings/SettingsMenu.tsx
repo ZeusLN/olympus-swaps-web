@@ -8,7 +8,6 @@ import { useGlobalContext } from "../../context/Global";
 import type { DictKey } from "../../i18n/i18n";
 import "../../style/settings.scss";
 import { isMobile } from "../../utils/helper";
-import BitcoinOnly from "./BitcoinOnly";
 import Denomination from "./Denomination";
 import FiatCurrencySetting from "./FiatCurrencySetting";
 import GasTopUp from "./GasTopUp";
@@ -104,11 +103,6 @@ const SettingsMenuContent = () => {
                     <Section
                         title={t("swap")}
                         icon={<IoSwapHorizontal size={20} />}>
-                        <Entry
-                            label={"bitcoin_only"}
-                            tooltipLabel={"bitcoin_only_tooltip"}
-                            settingElement={<BitcoinOnly />}
-                        />
                         <Entry
                             label={"slippage"}
                             tooltipLabel={"slippage_tooltip"}
