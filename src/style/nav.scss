@@ -148,9 +148,11 @@ nav a.active {
     }
 }
 .tor-icon {
-    height: 22px;
+    height: 18px;
     width: auto;
-    margin-left: 4px;
+    padding-left: 6px;
+    float: right;
+    margin-top: 3px;
     filter: brightness(0) invert(1);
 }
 
@@ -229,6 +231,12 @@ body:has(#hamburger.active) {
     #collapse.active a.external svg {
         width: 30px;
         height: 36px;
+    }
+
+    #collapse.active a.external .tor-icon {
+        width: auto;
+        height: 26px;
+        margin-top: 5px;
     }
 }
 
