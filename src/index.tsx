@@ -16,7 +16,6 @@ import { render } from "solid-js/web";
 
 import { configureBoltzSwaps } from "./boltzSwapsConfig";
 import Chatwoot from "./chatwoot";
-import Footer from "./components/Footer";
 import { legacyRescueRedirects } from "./components/LegacyRescueRedirects";
 import Nav from "./components/Nav";
 import Notification from "./components/Notification";
@@ -124,9 +123,6 @@ const App = (props: RouteSectionProps) => {
                                     {props.children}
                                 </Show>
                                 <Notification />
-                                <Show when={!isEmbedded}>
-                                    <Footer />
-                                </Show>
                             </RescueProvider>
                         </PayProvider>
                     </CreateProvider>

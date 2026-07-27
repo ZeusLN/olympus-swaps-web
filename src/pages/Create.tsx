@@ -812,7 +812,7 @@ const Create = () => {
         <Show when={wasmSupported()} fallback={<ErrorWasm />}>
             <div class="frame">
                 <SettingsCog />
-                <h2 class="frame-title" data-testid="create-swap-title">
+                <h2 class="frame-title marlide-font" data-testid="create-swap-title">
                     {t("create_swap")}
                 </h2>
                 <Show

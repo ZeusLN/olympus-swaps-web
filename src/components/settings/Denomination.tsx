@@ -20,14 +20,12 @@ const Denomination = () => {
                 data-testid="btc-denomination-button"
                 class={denomination() == Denoms.Btc ? "active" : ""}
                 onClick={() => setDenomination(Denoms.Btc)}>
-                <span class="denominator" data-denominator={Denoms.Btc} />
                 {formatDenomination(Denoms.Btc, BTC)}
             </button>
             <button
                 data-testid="sats-denomination-button"
                 class={denomination() == Denoms.Sat ? "active" : ""}
                 onClick={() => setDenomination(Denoms.Sat)}>
-                <span class="denominator" data-denominator={Denoms.Sat} />
                 {formatDenomination(Denoms.Sat, Denoms.Sat)}
             </button>
         </div>

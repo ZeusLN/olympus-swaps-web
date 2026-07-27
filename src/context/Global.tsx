@@ -62,6 +62,7 @@ export type notifyFn = (type: NotificationType, message: string) => void;
 export type GlobalContextType = {
     online: Accessor<boolean>;
     setOnline: Setter<boolean>;
+    apiError: Accessor<string>;
     pairs: Accessor<Pairs | undefined>;
     setPairs: Setter<Pairs | undefined>;
     regularPairs: Accessor<Pairs | undefined>;
@@ -156,6 +157,7 @@ const GlobalProvider = (props: {
     initialParentOrigin?: string;
 }) => {
     const [online, setOnline] = createSignal<boolean>(true);
+    const [apiError, setApiError] = createSignal<string>("");
     const [pairs, setPairs] = createSignal<Pairs | undefined>(undefined);
     const [regularPairs, setRegularPairs] = createSignal<Pairs | undefined>(
         undefined,
@@ -326,9 +328,11 @@ const GlobalProvider = (props: {
 
             log.debug("getpairs", data);
             setOnline(true);
+            setApiError("");
             setPairs(data);
         } catch (error) {
             log.error("Error fetching pairs", error);
+            setApiError(formatError(error));
             setOnline(false);
             throw formatError(error);
         }
@@ -594,6 +598,7 @@ const GlobalProvider = (props: {
             value={{
                 online,
                 setOnline,
+                apiError,
                 pairs,
                 setPairs,
                 regularPairs,
