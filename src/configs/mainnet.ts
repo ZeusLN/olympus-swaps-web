@@ -1,29 +1,22 @@
 import { buildMainnetConfig } from "boltz-swaps/presets/mainnet";
 import { type Config, baseConfig, chooseUrl } from "src/configs/base";
-import { envRpcUrls } from "src/configs/rpcs";
-import { usdt0CanSendOverrides } from "src/configs/usdt0";
 
 const mainnetPreset = buildMainnetConfig({
-    rpcUrls: envRpcUrls,
-    canSend: usdt0CanSendOverrides,
+    boltzApiUrl: "https://swaps.zeuslsp.com/api",
     btcMempoolApiUrl: import.meta.env.VITE_MEMPOOL_API_URL || undefined,
-    // The SDK exposes the Arkade chain-swap source (asset id "ARK"), but the web
-    // app has no Arkade wallet support yet, so keep it out of the app's asset
-    // list (selector and `sendAsset`/`receiveAsset` URL params).
-    filterAssets: (asset) => asset !== "ARK",
+    // ZEUS swaps only supports mainchain Bitcoin <-> Lightning
+    filterAssets: (asset) => asset === "BTC",
 });
 
 const config = {
     ...baseConfig,
-    torUrl: "http://boltzzzbnus4m7mta3cxmflnps4fp7dueu2tgurstbvrbt6xswzcocyd.onion/",
+    torUrl: "http://vsi7wnnknx2mlryo4mmehf5smfsiqy6kkzbkiu4pz7xaocvzceeccqyd.onion/",
     network: "mainnet",
     loglevel: "debug",
     apiUrl: {
-        normal: "https://api.boltz.exchange",
-        tor: "http://boltzzzbnus4m7mta3cxmflnps4fp7dueu2tgurstbvrbt6xswzcocyd.onion/api",
+        normal: "https://swaps.zeuslsp.com/api",
+        tor: "http://vsi7wnnknx2mlryo4mmehf5smfsiqy6kkzbkiu4pz7xaocvzceeccqyd.onion/api",
     },
-    cctpApiUrl: mainnetPreset.cctpApiUrl,
-    solburnUrl: mainnetPreset.solburnUrl,
     assets: mainnetPreset.assets,
 } as Config;
 
