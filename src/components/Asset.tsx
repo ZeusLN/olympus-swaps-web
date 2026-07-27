@@ -6,6 +6,7 @@ import { AssetSelection, type Side } from "../consts/Enums";
 import { useCreateContext } from "../context/Create";
 import { useGlobalContext } from "../context/Global";
 import "../style/asset.scss";
+import { useSetDirection } from "../utils/setDirection";
 
 const Asset = (props: {
     side: Side;
@@ -13,9 +14,16 @@ const Asset = (props: {
     disabled?: boolean;
 }) => {
     const { bitcoinOnly } = useGlobalContext();
+    const setDirection = useSetDirection();
 
     const openSelect = () => {
-        if (props.disabled || bitcoinOnly()) {
+        if (props.disabled) {
+            return;
+        }
+        // With only two assets there is nothing to select; flip the
+        // direction instead, like the arrow between the asset rows
+        if (bitcoinOnly()) {
+            setDirection();
             return;
         }
         setAssetSelected(props.side);
@@ -30,7 +38,7 @@ const Asset = (props: {
             disabled={props.disabled}
             class={`asset-wrap${
                 bitcoinOnly() || props.disabled ? " no-select" : ""
-            }`}
+            }${bitcoinOnly() && !props.disabled ? " flippable" : ""}`}
             onClick={openSelect}>
             <div
                 data-testid={`asset-${props.side}`}

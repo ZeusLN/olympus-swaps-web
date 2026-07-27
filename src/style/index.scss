@@ -161,6 +161,14 @@ hr.spacer {
             display: none;
         }
     }
+    // Bitcoin-only mode: the asset buttons flip the swap direction
+    &.no-select.flippable {
+        cursor: pointer;
+        &:hover {
+            background: var(--color-secondary-600);
+            border-color: var(--color-white-25);
+        }
+    }
 }
 
 .asset-selection {
