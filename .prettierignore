@@ -1,2 +1,4 @@
 packages/*/src/generated/**
 packages/*/dist/**
+public/vendor
+public/loading-columns.json

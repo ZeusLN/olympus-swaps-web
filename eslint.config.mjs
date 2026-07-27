@@ -14,6 +14,7 @@ export default [
             "docs",
             "regtest",
             "coverage",
+            "public/vendor",
             "build/dist",
             "node_modules",
             "dnssec-prover",

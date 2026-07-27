@@ -83,6 +83,7 @@
         "git-cliff": "^2.13.1",
         "globals": "^17.7.0",
         "jsdom": "^29.1.1",
+        "lottie-web": "^5.13.0",
         "magic-string": "^0.30.21",
         "prettier": "^3.9.4",
         "sass-embedded": "^1.99.0",
