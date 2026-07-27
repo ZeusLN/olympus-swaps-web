@@ -1,9 +1,12 @@
 import { A } from "@solidjs/router";
+import { AiFillHome } from "solid-icons/ai";
 import { IoLanguage } from "solid-icons/io";
 import { OcLinkexternal2 } from "solid-icons/oc";
 import { For, Show, createSignal, onCleanup, onMount } from "solid-js";
 
 import Warnings from "../components/Warnings";
+import logo from "../assets/olympus-z-white.svg";
+import torIcon from "../assets/tor.svg";
 import { config } from "../config";
 import { useGlobalContext } from "../context/Global";
 import locales from "../i18n/i18n";
@@ -40,12 +43,8 @@ const Nav = (props: { network: string; isPro?: boolean }) => {
             <Warnings />
             <div class="nav-inner">
                 <A id="logo" href="/" onClick={() => setHideHero(false)}>
-                    <div
-                        id="logo-mask"
-                        boltz-theme={props.isPro ? "pro" : "default"}
-                        role="img"
-                        aria-label="Boltz logo"
-                    />
+                    <img src={logo} height="30" alt="Swaps by ZEUS LSP" />
+                    <span class="logo-text">Swaps by ZEUS LSP</span>
                 </A>
                 <Show when={props.network !== "mainnet"}>
                     <div id="network" class="btn btn-small">
@@ -100,21 +99,28 @@ const Nav = (props: { network: string; isPro?: boolean }) => {
                     <A href="/history" onClick={() => setHamburger(false)}>
                         {t("history")}
                     </A>
-                    <A href="/products" onClick={() => setHamburger(false)}>
-                        {t("products")}
-                    </A>
-                    <Show when={config.supportUrl}>
-                        <ExternalLink class="external" href={config.supportUrl}>
-                            {t("help")}
-                            <OcLinkexternal2 size={23} />
+                    <ExternalLink
+                        class="external"
+                        href="https://docs.zeusln.app/swaps/intro">
+                        {t("docs")}
+                        <OcLinkexternal2 size={23} />
+                    </ExternalLink>
+                    <Show when={config.torUrl}>
+                        <ExternalLink class="external" href={config.torUrl}>
+                            {t("onion")}
+                            <img
+                                src={torIcon}
+                                alt="Tor onion service"
+                                class="tor-icon"
+                            />
                         </ExternalLink>
                     </Show>
-                    <Show when={config.docsUrl}>
-                        <ExternalLink class="external" href={config.docsUrl}>
-                            {t("docs")}
-                            <OcLinkexternal2 size={23} />
-                        </ExternalLink>
-                    </Show>
+                    <ExternalLink
+                        class="external"
+                        href="https://olympusln.com"
+                        aria-label="Olympus home">
+                        <AiFillHome size={23} />
+                    </ExternalLink>
                 </div>
                 <svg
                     id="hamburger"
