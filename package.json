@@ -90,7 +90,7 @@
         "stylelint": "^17.14.0",
         "stylelint-config-recommended-scss": "^17.0.1",
         "stylelint-declaration-strict-value": "^1.11.1",
-        "svgo": "^4.0.1",
+        "svgo": "^4.0.2",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.63.0",
         "typescript7": "npm:typescript@^7.0.2",
@@ -154,5 +154,13 @@
         "solid-icons": "^1.2.0",
         "solid-js": "^1.9.14",
         "tronweb": "catalog:"
+    },
+    "overrides": {
+        "axios": "^1.18.1",
+        "fast-uri": "^3.1.4",
+        "immutable": "^5.1.9",
+        "postcss": "^8.5.18",
+        "protobufjs": "^7.6.5",
+        "ws": "^8.21.0"
     }
 }
