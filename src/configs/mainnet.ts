@@ -18,6 +18,8 @@ const config = {
     ...baseConfig,
     // ZEUS swaps only offers mainchain Bitcoin <-> Lightning
     defaultBitcoinOnly: true,
+    // The ZEUS Lightning node does not support BOLT12 offers
+    bolt12Supported: false,
     torUrl: "http://vsi7wnnknx2mlryo4mmehf5smfsiqy6kkzbkiu4pz7xaocvzceeccqyd.onion/",
     network: "mainnet",
     loglevel: "debug",

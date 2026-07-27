@@ -3,6 +3,7 @@ import { isBolt12Offer } from "boltz-swaps/invoice";
 import { SwapType } from "boltz-swaps/types";
 import { createEffect, on } from "solid-js";
 
+import { config } from "../config";
 import { LN, isBitcoinOnlyAsset } from "../consts/Assets";
 import { Side } from "../consts/Enums";
 import { useCreateContext } from "../context/Create";
@@ -159,6 +160,9 @@ const InvoiceInput = (props: InvoiceInputProps = {}) => {
                 }
 
                 if (isBolt12) {
+                    if (!config.bolt12Supported) {
+                        throw new Error("invalid_invoice");
+                    }
                     resetInvoiceState();
                     setInvoice(invoiceValue);
                     setBolt12Offer(invoiceValue);

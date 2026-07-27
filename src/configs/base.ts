@@ -21,6 +21,10 @@ const defaults = {
     // Default for the "bitcoin only" mode; ZEUS mainnet forces this on
     defaultBitcoinOnly: false,
 
+    // Whether BOLT12 offers are accepted as Lightning destinations;
+    // disabled on ZEUS mainnet because its Lightning node lacks support
+    bolt12Supported: true,
+
     preventReloadOnPendingSwaps: true,
 
     loglevel: "info" as log.LogLevelDesc,

@@ -68,8 +68,7 @@ const dict = {
         commitment_invoice_deferred:
             "Enter Lightning destination after payment",
         clear_amount: "Clear",
-        create_and_paste:
-            "Paste a Lightning invoice, BOLT12 or LNURL to receive funds",
+        create_and_paste: "Paste a Lightning invoice or LNURL to receive funds",
         invoice_cleared_amount_changed:
             "Invoice cleared because the amount changed.",
         congrats: "Congratulations!",
@@ -97,8 +96,7 @@ const dict = {
         onchain_address: "Enter {{ asset }} address to receive funds",
         onchain_address_no_asset: "Enter address",
         invalid_refund_file: "Invalid rescue key",
-        invalid_invoice:
-            "Please provide a valid Lightning invoice, BOLT12 or LNURL",
+        invalid_invoice: "Please provide a valid Lightning invoice or LNURL",
         invalid_0_amount: "Invoices without amount are not supported",
         copy_invoice: "Lightning invoice",
         copy_address: "Address",
@@ -623,7 +621,7 @@ const dict = {
         commitment_invoice_deferred: "Lightning-Ziel nach Zahlung eingeben",
         clear_amount: "Löschen",
         create_and_paste:
-            "Füge eine Lightning-Rechnung, BOLT12 oder LNURL des Empfängers ein",
+            "Füge eine Lightning-Rechnung oder LNURL des Empfängers ein",
         invoice_cleared_amount_changed:
             "Rechnung gelöscht, weil sich der Betrag geändert hat.",
         congrats: "Herzlichen Glückwunsch!",
@@ -653,7 +651,7 @@ const dict = {
         onchain_address_no_asset: "Adresse",
         invalid_refund_file: "Ungültiger Rettungsschlüssel",
         invalid_invoice:
-            "Bitte eine gültige Lightning-Rechnung, BOLT12 oder LNURL eingeben",
+            "Bitte eine gültige Lightning-Rechnung oder LNURL eingeben",
         invalid_0_amount: "Lightning-Rechnungen ohne Betrag nicht unterstützt",
         copy_invoice: "Lightning-Rechnung",
         copy_address: "Adresse",
@@ -1194,7 +1192,7 @@ const dict = {
             "Ingresa el destino Lightning después del pago",
         clear_amount: "Borrar",
         create_and_paste:
-            "Pega una factura Lightning, una dirección BOLT12 o una LNURL para recibir los fondos",
+            "Pega una factura Lightning o una LNURL para recibir los fondos",
         invoice_cleared_amount_changed:
             "La factura se borró porque cambió el importe.",
         congrats: "¡Felicitaciones!",
@@ -1223,7 +1221,7 @@ const dict = {
         onchain_address_no_asset: "Ingrese la dirección",
         invalid_refund_file: "Clave de rescate no válido",
         invalid_invoice:
-            "Por favor, pegue una factura Lightning, BOLT12 o LNURL válida",
+            "Por favor, pegue una factura Lightning o LNURL válida",
         invalid_0_amount: "No se admiten facturas sin importe",
         copy_invoice: "Factura Lightning",
         copy_address: "Dirección",
@@ -1762,7 +1760,7 @@ const dict = {
             "Insira o destino Lightning após o pagamento",
         clear_amount: "Limpar",
         create_and_paste:
-            "Cole um invoice Lightning, um endereço BOLT12 ou um LNURL para receber os fundos",
+            "Cole um invoice Lightning ou um LNURL para receber os fundos",
         invoice_cleared_amount_changed:
             "O invoice foi removido porque o valor mudou.",
         congrats: "Parabéns!",
@@ -1791,7 +1789,7 @@ const dict = {
         onchain_address_no_asset: "Digite o endereço",
         invalid_refund_file: "Chave de resgate inválida",
         invalid_invoice:
-            "Por favor, forneça um invoice Lightning, BOLT12 ou LNURL válido",
+            "Por favor, forneça um invoice Lightning ou LNURL válido",
         invalid_0_amount: "Invoices sem valor não são suportadas",
         copy_invoice: "Invoice Lightning",
         copy_address: "Endereço",
@@ -2319,7 +2317,7 @@ const dict = {
             "输入 {{ amount }} {{ denomination }} 的闪电发票",
         commitment_invoice_deferred: "支付后输入闪电网络目标",
         clear_amount: "清除",
-        create_and_paste: "粘贴闪电发票、BOLT12 地址或 LNURL 以接收资金",
+        create_and_paste: "粘贴闪电发票或 LNURL 以接收资金",
         invoice_cleared_amount_changed: "金额已更改，发票已清除。",
         congrats: "恭喜！",
         successfully_swapped: "您成功收到{{ amount }}{{ denomination }}！",
@@ -2344,7 +2342,7 @@ const dict = {
         onchain_address: "输入{{ asset }}地址以接收资金",
         onchain_address_no_asset: "地址",
         invalid_refund_file: "无效的救援钥匙",
-        invalid_invoice: "请提供有效的发票,BOLT12或LNURL",
+        invalid_invoice: "请提供有效的发票或LNURL",
         invalid_0_amount: "不支持没有金额的发票",
         copy_invoice: "闪电网络发票",
         copy_address: "地址",
@@ -2828,7 +2826,7 @@ const dict = {
         commitment_invoice_deferred: "支払い後にライトニングの送金先を入力",
         clear_amount: "クリア",
         create_and_paste:
-            "資金を受け取るために、ライトニングインボイス、BOLT12、またはLNURLを貼り付けてください",
+            "資金を受け取るために、ライトニングインボイスまたはLNURLを貼り付けてください",
         invoice_cleared_amount_changed:
             "金額が変更されたためインボイスをクリアしました。",
         congrats: "おめでとうございます！",
@@ -2857,7 +2855,7 @@ const dict = {
             "資金を受け取るために、{{ asset }}アドレスを入力してください",
         onchain_address_no_asset: "アドレスを入力してください",
         invalid_refund_file: "無効なレスキューキー",
-        invalid_invoice: "有効なインボイス、BOLT12、LNURLを入力してください",
+        invalid_invoice: "有効なインボイスまたはLNURLを入力してください",
         invalid_0_amount: "金額のない空インボイスは対応していません",
         copy_invoice: "インボイスをコピー",
         copy_address: "アドレスをコピー",
