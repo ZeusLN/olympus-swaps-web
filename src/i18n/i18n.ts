@@ -5,12 +5,12 @@ const dict = {
         status: "Status",
         fast: "Fast",
         l2: "Built on Layer 2",
-        l2_sub: "Boltz utilizes Layer 2 scaling technologies like the Lightning Network",
+        l2_sub: "ZEUS Swaps utilizes Layer 2 scaling technologies like the Lightning Network",
         assets_sub: "Bitcoin Layers and Stablecoins",
         safe: "Safe",
         non_custodial: "Non-Custodial",
         non_custodial_sub:
-            "Swaps on Boltz are atomic, cryptography ensures that users are always in control of their money",
+            "Swaps on ZEUS Swaps are atomic, cryptography ensures that users are always in control of their money",
         node: "Lightning Nodes",
         error: "Error",
         error_subline: "Invalid response from the API, something is wrong.",
@@ -33,7 +33,7 @@ const dict = {
         help: "Help",
         network_fee: "Network Fee",
         swap_fees: "Swap Fees",
-        fee: "Boltz Fee",
+        fee: "ZEUS Swaps Fee",
         denomination: "Denomination",
         send: "Send",
         checking_previous_transaction: "Checking previous transaction",
@@ -55,7 +55,7 @@ const dict = {
         minimum_amount: "Minimum amount is {{ amount }} {{ denomination }}",
         maximum_amount: "Maximum amount is {{ amount }} {{ denomination }}",
         assets: "Multi-Layer",
-        footer: "Made with 🧡 by Team Boltz",
+        footer: "Made with 🧡 by Team ZEUS Swaps",
         create_swap: "Create Swap",
         get_gas_token_for_gas: "Get {{ gasToken }} for gas",
         new_swap: "New Swap",
@@ -105,7 +105,7 @@ const dict = {
         copy_amount: "Amount",
         copy_bip21: "BIP21",
         rescue_a_swap_subline:
-            "If you sent BTC or LBTC into a Boltz swap, upload or enter your rescue key to rescue a swap that is not available in this browser’s swap history.",
+            "If you sent BTC or LBTC into a ZEUS Swaps swap, upload or enter your rescue key to rescue a swap that is not available in this browser’s swap history.",
         rescue_a_swap_mnemonic:
             "Enter your rescue key to rescue a swap that is not available in this browser’s swap history.",
         refund_past_swaps: "Past swaps",
@@ -151,7 +151,7 @@ const dict = {
         already_refunded: "Swap already refunded",
         api_offline: "API is offline",
         api_offline_msg:
-            "Could not connect to the Boltz API, please try again later",
+            "Could not connect to the ZEUS Swaps API, please try again later",
         refund_explainer: "You will be able to refund after the swap timeout!",
         wasm_not_supported: "Please activate WebAssembly in your browser",
         created: "Created",
@@ -287,7 +287,7 @@ const dict = {
         no_wallet_connected: "No wallet connected",
         no_lockup_transaction: "No lockup transaction found",
         routing_fee_limit: "Routing Fee Limit",
-        download_boltz_rescue_key: "Boltz Rescue Key",
+        download_boltz_rescue_key: "ZEUS Swaps Rescue Key",
         download_boltz_rescue_key_subline:
             "Back up all your swaps with a single Rescue Key 🙌",
         download_boltz_rescue_key_subline_second:
@@ -301,12 +301,12 @@ const dict = {
         download_boltz_rescue_key_subline_warning:
             "Failing to do so may lead to **LOSS OF FUNDS**.",
         download_new_key: "Download rescue key",
-        verify_boltz_rescue_key: "Verify Boltz Rescue Key",
+        verify_boltz_rescue_key: "Verify ZEUS Swaps Rescue Key",
         verify_boltz_rescue_key_subline:
-            "Please select your previously saved Boltz Rescue Key to verify it.",
+            "Please select your previously saved ZEUS Swaps Rescue Key to verify it.",
         verify_key: "Verify key",
         verify_key_failed:
-            "Verification of the Boltz Rescue Key failed. We recommend downloading a new Boltz Rescue Key to continue.",
+            "Verification of the ZEUS Swaps Rescue Key failed. We recommend downloading a new ZEUS Swaps Rescue Key to continue.",
         rescue_key: "Rescue Key",
         reset_rescue_key_tooltip:
             "Generate a new Rescue Key and wipe all swap data",
@@ -325,7 +325,7 @@ const dict = {
         pagination_info: "Page {{ start }} of {{ end }}",
         generate_key: "Generate new key",
         show_rescue_key_instead: "Show the 12-word rescue key instead",
-        backup_boltz_rescue_key: "Backup Boltz Rescue Key",
+        backup_boltz_rescue_key: "Backup ZEUS Swaps Rescue Key",
         backup_boltz_rescue_key_subline_second:
             "This new key works on any device and works for all swaps created with it.",
         backup_boltz_rescue_key_subline_third:
@@ -430,7 +430,7 @@ const dict = {
             "Autoswap to mainchain Bitcoin based on your preferences",
         boltz_plugin_feature_self_custodial_title: "Non-custodial",
         boltz_plugin_feature_self_custodial_description:
-            "Stay in full control of your Bitcoin, powered by Boltz Atomic Swaps",
+            "Stay in full control of your Bitcoin, powered by ZEUS Atomic Swaps",
 
         boltz_plugin_questions_title: "Questions?",
         boltz_plugin_questions_subtitle: "We'd love to hear from you!",
@@ -458,7 +458,7 @@ const dict = {
             "Built-in wallet system and comprehensive API for seamless integration into your infrastructure.",
         boltz_client_cli_second_paragraph:
             "Monitor, control, and automate everything from the command line or your own applications.",
-        boltz_client_cta_title: "Ready to add Boltz to your infrastructure?",
+        boltz_client_cta_title: "Ready to add ZEUS Swaps to your infrastructure?",
         boltz_client_cta_subtitle:
             "Join enterprises and node runners trusting Boltz Client",
 
@@ -473,7 +473,7 @@ const dict = {
         boltz_pro_chart_x_axis: "Date",
         boltz_pro_negative_fee: "You earn sats",
         boltz_pro_lower_fee: "You save sats",
-        boltz_pro_regular_fee: "Regular Boltz Fee",
+        boltz_pro_regular_fee: "Regular ZEUS Swaps Fee",
         boltz_pro_target_audience_title: "Who is Boltz Pro For?",
         boltz_pro_target_audience_subtitle:
             "Built for professionals seeking earn opportunities, not for everyday payments",
@@ -537,7 +537,7 @@ const dict = {
         rescue_external_resume: "Resume",
 
         evm_rescue_prompt:
-            'If you sent funds into a Boltz swap on an EVM chain, use "Refund Swap"; if you were receiving funds from an EVM chain, use "Resume Swap" to rescue a swap that is not available in this browser’s swap history.',
+            'If you sent funds into a ZEUS Swaps swap on an EVM chain, use "Refund Swap"; if you were receiving funds from an EVM chain, use "Resume Swap" to rescue a swap that is not available in this browser’s swap history.',
         evm_rescue_refund_title: "Refund Swap",
         start_scanning: "Start scanning",
         stop_scanning: "Stop scanning",
@@ -559,12 +559,12 @@ const dict = {
         status: "Status",
         fast: "Schnell",
         l2: "Auf Layer-2 gebaut",
-        l2_sub: "Boltz nutzt Layer-2 Skalierungstechnologien wie das Lightning-Netzwerk",
+        l2_sub: "ZEUS Swaps nutzt Layer-2 Skalierungstechnologien wie das Lightning-Netzwerk",
         assets_sub: "Bitcoin-Layer und Stablecoins",
         safe: "Sicher",
         non_custodial: "Non-Custodial",
         non_custodial_sub:
-            "Swaps auf Boltz sind atomar, Kryptografie stellt sicher, dass Nutzer stets die Kontrolle über ihre Bitcoin behalten",
+            "Swaps auf ZEUS Swaps sind atomar, Kryptografie stellt sicher, dass Nutzer stets die Kontrolle über ihre Bitcoin behalten",
         node: "Lightning-Knoten",
         error: "Fehler",
         error_subline:
@@ -588,7 +588,7 @@ const dict = {
         help: "Hilfe",
         network_fee: "Netzwerkgebühr",
         swap_fees: "Swap-Gebühren",
-        fee: "Boltzgebühr",
+        fee: "ZEUS Swapsgebühr",
         denomination: "Denominierung",
         send: "Sende",
         checking_previous_transaction: "Vorherige Transaktion wird geprüft",
@@ -609,7 +609,7 @@ const dict = {
         minimum_amount: "Mindestbetrag ist {{ amount }} {{ denomination }}",
         maximum_amount: "Höchstbetrag ist {{ amount }} {{ denomination }}",
         assets: "Multi-layer",
-        footer: "Mit 🧡 gemacht von Team Boltz",
+        footer: "Mit 🧡 gemacht von Team ZEUS Swaps",
         create_swap: "Erstelle Swap",
         get_gas_token_for_gas: "Erhalte {{ gasToken }} für Gas",
         new_swap: "Neuer Swap",
@@ -706,7 +706,7 @@ const dict = {
         already_refunded: "Swap wurde bereits erstattet!",
         api_offline: "API ist offline",
         api_offline_msg:
-            "Konnte keine Verbindung zur Boltz API herstellen. Bitte versuche es später noch einmal.",
+            "Konnte keine Verbindung zur ZEUS Swaps API herstellen. Bitte versuche es später noch einmal.",
         refund_explainer:
             "Du kannst nach dem Timeout eine Rückerstattung beantragen!",
         wasm_not_supported: "Bitte aktiviere WebAssembly in deinem Browser!",
@@ -848,7 +848,7 @@ const dict = {
         no_wallet_connected: "Kein Wallet verbunden",
         no_lockup_transaction: "Keine Lockup-Transaktion gefunden",
         routing_fee_limit: "Routing Gebühr Limit",
-        download_boltz_rescue_key: "Boltz Rettungsschlüssel",
+        download_boltz_rescue_key: "ZEUS Swaps Rettungsschlüssel",
         download_boltz_rescue_key_subline:
             "Sichere alle deine Swaps mit einem einzigen Rettungsschlüssel 🙌",
         download_boltz_rescue_key_subline_second:
@@ -863,12 +863,12 @@ const dict = {
             "Andernfalls kann es zum **VERLUST VON GELDMITTELN** kommen.",
         download_new_key: "Rettungsschlüssel herunterladen",
         verify_boltz_rescue_key:
-            "Existierenden Boltz Rettungsschlüssel verifizieren",
+            "Existierenden ZEUS Swaps Rettungsschlüssel verifizieren",
         verify_boltz_rescue_key_subline:
-            "Bitte wähle den zuvor heruntergeladenen Boltz Rettungsschlüssel aus, um ihn zu verifizieren.",
+            "Bitte wähle den zuvor heruntergeladenen ZEUS Swaps Rettungsschlüssel aus, um ihn zu verifizieren.",
         verify_key: "Schlüssel verifizieren",
         verify_key_failed:
-            "Die Verifizierung des Boltz Rettungsschlüssels ist fehlgeschlagen. Wir empfehlen, einen neuen Rettungsschlüssel herunterzuladen.",
+            "Die Verifizierung des ZEUS Swaps Rettungsschlüssels ist fehlgeschlagen. Wir empfehlen, einen neuen Rettungsschlüssel herunterzuladen.",
         rescue_key: "Rettungsschlüssel",
         reset_rescue_key_tooltip:
             "Generiere einen neuen Rettungsschlüssel und lösche alle Swap-Daten",
@@ -889,7 +889,7 @@ const dict = {
         generate_key: "Neuen Schlüssel generieren",
         show_rescue_key_instead:
             "Stattdessen den 12-Wort-Rettungsschlüssel anzeigen",
-        backup_boltz_rescue_key: "Boltz Rettungsschlüssel sichern",
+        backup_boltz_rescue_key: "ZEUS Swaps Rettungsschlüssel sichern",
         backup_boltz_rescue_key_subline_second:
             "Dieser neue Schlüssel funktioniert auf jedem Gerät und ist für alle Swaps gültig.",
         backup_boltz_rescue_key_subline_third:
@@ -977,7 +977,7 @@ const dict = {
             "Non-custodial Lösung für einfache Akzeptierung von Lightning-Zahlungen",
         boltz_plugin_step_install_title: "Plugin hinzufügen",
         boltz_plugin_step_install_description:
-            "Installiere das Boltz Plugin auf deinem BTCPay Server",
+            "Installiere das ZEUS Swaps Plugin auf deinem BTCPay Server",
         boltz_plugin_step_setup_title: "Wallet einrichten",
         boltz_plugin_step_setup_description:
             "Verbinde dein externes Wallet oder erstelle ein neues",
@@ -998,7 +998,7 @@ const dict = {
             "Autoswap zu Bitcoin basierend auf deinen Präferenzen",
         boltz_plugin_feature_self_custodial_title: "Non-custodial",
         boltz_plugin_feature_self_custodial_description:
-            "Behalte jederzeit die volle Kontrolle über deine Bitcoin, powered by Boltz Atomic Swaps",
+            "Behalte jederzeit die volle Kontrolle über deine Bitcoin, powered by ZEUS Atomic Swaps",
         boltz_plugin_questions_title: "Fragen?",
         boltz_plugin_questions_subtitle: "Wir würden gerne von dir hören!",
         // Client
@@ -1025,7 +1025,7 @@ const dict = {
             "Integriertes Wallet-System und umfassende API für nahtlose Integration in deine Infrastruktur.",
         boltz_client_cli_second_paragraph:
             "Überwache, steuere und automatisiere mit deinen eigenen Anwendungen oder via CLI.",
-        boltz_client_cta_title: "Füge Boltz deiner Infrastruktur hinzu!",
+        boltz_client_cta_title: "Füge ZEUS Swaps deiner Infrastruktur hinzu!",
         boltz_client_cta_subtitle:
             "Werde Teil der Community von Unternehmen und Node-Betreibern, die Boltz Client benutzen",
 
@@ -1041,7 +1041,7 @@ const dict = {
         boltz_pro_chart_x_axis: "Datum",
         boltz_pro_negative_fee: "Du verdienst Sats",
         boltz_pro_lower_fee: "Du sparst Sats",
-        boltz_pro_regular_fee: "Normale Boltz Gebühr",
+        boltz_pro_regular_fee: "Normale ZEUS Swaps Gebühr",
         boltz_pro_target_audience_title: "Für wen ist Boltz Pro?",
         boltz_pro_target_audience_subtitle:
             "Gebaut für Profis die Sats verdienen wollen, nicht für alltägliche Zahlungen",
@@ -1107,7 +1107,7 @@ const dict = {
             "Benötigt Rettungsschlüssel und Wallet",
         rescue_external_resume: "Fortsetzen",
         evm_rescue_prompt:
-            'Wenn du Guthaben in einen Boltz-Swap auf einer EVM-Chain gesendet hast, nutze "Swap erstatten"; wenn du Guthaben von einer EVM-Chain empfangen hast, nutze "Swap fortsetzen", um einen Swap zu retten, der nicht im Verlauf dieses Browsers verfügbar ist.',
+            'Wenn du Guthaben in einen ZEUS Swaps-Swap auf einer EVM-Chain gesendet hast, nutze "Swap erstatten"; wenn du Guthaben von einer EVM-Chain empfangen hast, nutze "Swap fortsetzen", um einen Swap zu retten, der nicht im Verlauf dieses Browsers verfügbar ist.',
         evm_rescue_refund_title: "Swap erstatten",
         start_scanning: "Scannen starten",
         stop_scanning: "Scannen stoppen",
@@ -1129,12 +1129,12 @@ const dict = {
         status: "Estado",
         fast: "Rápido",
         l2: "Construido en la Capa 2",
-        l2_sub: "Boltz utiliza tecnologías de segunda capa como la red de Lightning",
+        l2_sub: "ZEUS Swaps utiliza tecnologías de segunda capa como la red de Lightning",
         assets_sub: "Capas de Bitcoin y Stablecoins",
         safe: "Seguro",
         non_custodial: "Sin Custodia",
         non_custodial_sub:
-            "Los intercambios en Boltz son atomicos, la criptografía garantiza que los usuarios siempre tienen el control de su Bitcoin",
+            "Los intercambios en ZEUS Swaps son atomicos, la criptografía garantiza que los usuarios siempre tienen el control de su Bitcoin",
         node: "Nodos de Lightning",
         error: "Error",
         error_subline: "Respuesta inválida de la API, algo está mal :/",
@@ -1157,7 +1157,7 @@ const dict = {
         help: "Ayuda",
         network_fee: "Comisión de Red",
         swap_fees: "Comisiones del Intercambio",
-        fee: "Comisión de Boltz",
+        fee: "Comisión de ZEUS Swaps",
         denomination: "Denominación",
         send: "Enviar",
         checking_previous_transaction: "Comprobando transacción anterior",
@@ -1179,7 +1179,7 @@ const dict = {
         minimum_amount: "La cantidad mínima es {{ amount }} {{ denomination }}",
         maximum_amount: "La cantidad máxima es {{ amount }} {{ denomination }}",
         assets: "Multicapa",
-        footer: "Hecho con 🧡 por el equipo de Boltz",
+        footer: "Hecho con 🧡 por el equipo de ZEUS Swaps",
         create_swap: "Crear intercambio",
         get_gas_token_for_gas: "Obtén {{ gasToken }} para gas",
         new_swap: "Nuevo intercambio",
@@ -1229,7 +1229,7 @@ const dict = {
         copy_amount: "Importe",
         copy_bip21: "BIP21",
         rescue_a_swap_subline:
-            "Si enviaste BTC o LBTC a un intercambio Boltz, carga o introduce tu clave de rescate para rescatar un swap que no esté disponible en el historial de swaps de este navegador",
+            "Si enviaste BTC o LBTC a un intercambio ZEUS Swaps, carga o introduce tu clave de rescate para rescatar un swap que no esté disponible en el historial de swaps de este navegador",
         rescue_a_swap_mnemonic:
             "Introduce tu clave de rescate para rescatar un intercambio que no está disponible en el historial de este navegador.",
         refund_past_swaps: "Intercambios anteriores",
@@ -1278,7 +1278,7 @@ const dict = {
         already_refunded: "El intercambio ya ha sido reembolsado!",
         api_offline: "API está offline!",
         api_offline_msg:
-            "No se pudo conectar a la API de Boltz, por favor inténtelo de nuevo más tarde!",
+            "No se pudo conectar a la API de ZEUS Swaps, por favor inténtelo de nuevo más tarde!",
         refund_explainer:
             "Podrás solicitar un reembolso después del tiempo de espera!",
         wasm_not_supported: "Por favor, activa WebAssembly en tu navegador!",
@@ -1417,7 +1417,7 @@ const dict = {
         no_wallet_connected: "No hay monedero conectado",
         no_lockup_transaction: "No se encontró ninguna transacción de lockup",
         routing_fee_limit: "Límite Comisión Enrutamiento",
-        download_boltz_rescue_key: "Clave de rescate Boltz",
+        download_boltz_rescue_key: "Clave de rescate ZEUS Swaps",
         download_boltz_rescue_key_subline:
             "Haz una copia de seguridad de todos tus intercambios con una sola clave de rescate 🙌",
         download_boltz_rescue_key_subline_second:
@@ -1433,11 +1433,11 @@ const dict = {
         download_new_key: "Descargar clave de rescate",
         verify_boltz_rescue_key: "Verificar clave de rescate existente",
         verify_boltz_rescue_key_subline:
-            "Por favor, selecciona tu clave de rescate Boltz previamente guardada para verificar su validez.",
+            "Por favor, selecciona tu clave de rescate ZEUS Swaps previamente guardada para verificar su validez.",
         verify_key: "Verificar clave",
         verify_key_failed:
-            "La verificación de la clave de rescate Boltz ha fallado. Recomendamos descargar una nueva clave para continuar.",
-        rescue_key: "Clave de Rescate Boltz",
+            "La verificación de la clave de rescate ZEUS Swaps ha fallado. Recomendamos descargar una nueva clave para continuar.",
+        rescue_key: "Clave de Rescate ZEUS Swaps",
         reset_rescue_key_tooltip:
             "Generar una nueva clave de rescate y borrar todos los datos de intercambios históricos",
         reset_rescue_key_prompt:
@@ -1456,7 +1456,7 @@ const dict = {
         generate_key: "Generar nueva clave",
         show_rescue_key_instead:
             "Mostrar en su lugar la clave de rescate de 12 palabras",
-        backup_boltz_rescue_key: "Backup clave de rescate Boltz",
+        backup_boltz_rescue_key: "Backup clave de rescate ZEUS Swaps",
         backup_boltz_rescue_key_subline_second:
             "Esta nueva clave funciona en cualquier dispositivo y funciona para todas las transacciones creadas con ella.",
         backup_boltz_rescue_key_subline_third:
@@ -1526,7 +1526,7 @@ const dict = {
         products_plugin_title: "Plugin Boltz BTCPay",
         products_plugin_description:
             "Una solución sin custodia para aceptar fácilmente pagos Lightning sin ejecutar un nodo Lightning",
-        products_client_title: "Cliente Boltz",
+        products_client_title: "Cliente ZEUS Swaps",
         products_client_description:
             "Daemon de intercambios empresarial para integraciones y gestión de liquidez",
         products_pro_title: "Boltz Pro",
@@ -1565,12 +1565,12 @@ const dict = {
             "Autoswap a Bitcoin mainchain basado en tus preferencias",
         boltz_plugin_feature_self_custodial_title: "Sin custodia",
         boltz_plugin_feature_self_custodial_description:
-            "Mantén el control total de tus Bitcoin, impulsado por Boltz Atomic Swaps",
+            "Mantén el control total de tus Bitcoin, impulsado por ZEUS Atomic Swaps",
 
         boltz_plugin_questions_title: "¿Preguntas?",
         boltz_plugin_questions_subtitle: "¡Nos encantaría escucharte!",
         // Client
-        boltz_client_name: "Cliente Boltz",
+        boltz_client_name: "Cliente ZEUS Swaps",
         boltz_client_description:
             "Daemon de intercambios empresarial para integraciones y gestión de liquidez",
         boltz_client_features_title: "Construido para Empresas y Profesionales",
@@ -1593,7 +1593,7 @@ const dict = {
             "Sistema de monedero integrado y API completa para una integración perfecta en tu infraestructura.",
         boltz_client_cli_second_paragraph:
             "Monitorea, controla y automatiza con tus propias aplicaciones o a través de la CLI.",
-        boltz_client_cta_title: "¡Agrega Boltz a tu infraestructura!",
+        boltz_client_cta_title: "¡Agrega ZEUS Swaps a tu infraestructura!",
         boltz_client_cta_subtitle:
             "Únete a la comunidad de empresas y operadores de nodos que usan Boltz Client",
 
@@ -1609,7 +1609,7 @@ const dict = {
         boltz_pro_chart_x_axis: "Fecha",
         boltz_pro_negative_fee: "Ganas sats",
         boltz_pro_lower_fee: "Ahorras sats",
-        boltz_pro_regular_fee: "Comisión Regular de Boltz",
+        boltz_pro_regular_fee: "Comisión Regular de ZEUS Swaps",
         boltz_pro_target_audience_title: "¿Para quién es Boltz Pro?",
         boltz_pro_target_audience_subtitle:
             "Construido para profesionales que quieren ganar sats, no para pagos cotidianos",
@@ -1632,7 +1632,7 @@ const dict = {
             "Descubre las oportunidades actuales para ganar sats",
         boltz_pro_options_title: "3 formas de usar Boltz Pro",
         boltz_pro_options_subtitle: "Elige lo que mejor te convenga",
-        boltz_pro_option_client_title: "Cliente Boltz",
+        boltz_pro_option_client_title: "Cliente ZEUS Swaps",
         boltz_pro_option_client_description:
             "Automatiza Boltz Pro completamente con API y CLI",
         boltz_pro_option_web_title: "Aplicación Web",
@@ -1675,7 +1675,7 @@ const dict = {
             "Requiere clave de rescate y monedero",
         rescue_external_resume: "Reanudar",
         evm_rescue_prompt:
-            'Si enviaste fondos a un intercambio de Boltz en una cadena EVM, usa "Reembolsar intercambio"; si estabas recibiendo fondos desde una cadena EVM, usa "Reanudar intercambio" para rescatar un intercambio que no está disponible en el historial de este navegador.',
+            'Si enviaste fondos a un intercambio de ZEUS Swaps en una cadena EVM, usa "Reembolsar intercambio"; si estabas recibiendo fondos desde una cadena EVM, usa "Reanudar intercambio" para rescatar un intercambio que no está disponible en el historial de este navegador.',
         evm_rescue_refund_title: "Reembolsar intercambio",
         start_scanning: "Iniciar escaneo",
         stop_scanning: "Detener escaneo",
@@ -1697,12 +1697,12 @@ const dict = {
         status: "Estado",
         fast: "Rápido",
         l2: "Construído na Segunda Camada",
-        l2_sub: "A Boltz utiliza tecnologias de segunda camada como a rede Lightning",
+        l2_sub: "A ZEUS Swaps utiliza tecnologias de segunda camada como a rede Lightning",
         assets_sub: "Camadas de Bitcoin e Stablecoins",
         safe: "Seguro",
         non_custodial: "Não-Custodial",
         non_custodial_sub:
-            "As trocas na Boltz são atômicas, a criptografia garante que os usuários sempre tenham controle sobre seu Bitcoin",
+            "As trocas na ZEUS Swaps são atômicas, a criptografia garante que os usuários sempre tenham controle sobre seu Bitcoin",
         node: "Nós Lightning",
         error: "Erro",
         error_subline: "Resposta inválida da API, algo deu errado.",
@@ -1725,7 +1725,7 @@ const dict = {
         help: "Suporte",
         network_fee: "Taxa da Rede",
         swap_fees: "Taxas da Troca",
-        fee: "Taxa da Boltz",
+        fee: "Taxa da ZEUS Swaps",
         denomination: "Denominação",
         send: "Enviar",
         checking_previous_transaction: "Verificando transação anterior",
@@ -1747,7 +1747,7 @@ const dict = {
         minimum_amount: "O valor mínimo é {{ amount }} {{ denomination }}",
         maximum_amount: "O valor máximo é {{ amount }} {{ denomination }}",
         assets: "Multi-Camada",
-        footer: "Feito com 🧡 pela equipe da Boltz",
+        footer: "Feito com 🧡 pela equipe da ZEUS Swaps",
         create_swap: "Criar troca",
         get_gas_token_for_gas: "Obtenha {{ gasToken }} para gas",
         new_swap: "Nova troca",
@@ -1797,7 +1797,7 @@ const dict = {
         copy_amount: "Quantia",
         copy_bip21: "BIP21",
         rescue_a_swap_subline:
-            "Se enviou BTC ou LBTC para uma troca Boltz, faça upload ou insira sua chave de resgate para resgatar uma troca que não está no histórico deste navegador.",
+            "Se enviou BTC ou LBTC para uma troca ZEUS Swaps, faça upload ou insira sua chave de resgate para resgatar uma troca que não está no histórico deste navegador.",
         rescue_a_swap_mnemonic:
             "Insira sua chave de resgate para resgatar uma troca que não está no histórico deste navegador.",
         refund_past_swaps: "Trocas passadas",
@@ -1844,7 +1844,7 @@ const dict = {
         already_refunded: "A troca já foi reembolsada",
         api_offline: "A API está offline",
         api_offline_msg:
-            "Não foi possível conectar à API da Boltz, por favor tente novamente mais tarde",
+            "Não foi possível conectar à API da ZEUS Swaps, por favor tente novamente mais tarde",
         refund_explainer:
             "Será possível reembolsar a troca após o prazo de expiração!",
         wasm_not_supported: "Ative o WebAssembly no seu navegador",
@@ -1982,7 +1982,7 @@ const dict = {
         no_wallet_connected: "Nenhuma carteira conectada",
         no_lockup_transaction: "Nenhuma transação de lockup encontrada",
         routing_fee_limit: "Limite da Taxa de Roteamento",
-        download_boltz_rescue_key: "Chave de resgate da Boltz",
+        download_boltz_rescue_key: "Chave de resgate da ZEUS Swaps",
         download_boltz_rescue_key_subline:
             "Faça backup de todas as suas trocas com uma única chave de resgate 🙌",
         download_boltz_rescue_key_subline_second:
@@ -2021,7 +2021,7 @@ const dict = {
         generate_key: "Gerar nova chave",
         show_rescue_key_instead:
             "Mostrar a chave de resgate de 12 palavras em vez disso",
-        backup_boltz_rescue_key: "Backup chave de resgate da Boltz",
+        backup_boltz_rescue_key: "Backup chave de resgate da ZEUS Swaps",
         backup_boltz_rescue_key_subline_second:
             "Esta nova chave funciona em qualquer dispositivo e funciona para todas as trocas criadas com ela.",
         backup_boltz_rescue_key_subline_third:
@@ -2128,7 +2128,7 @@ const dict = {
             "Troca automática para Bitcoin mainchain com base nas suas preferências",
         boltz_plugin_feature_self_custodial_title: "Não-custodial",
         boltz_plugin_feature_self_custodial_description:
-            "Mantenha o controle total dos seus Bitcoin com o poder das trocas atômicas da Boltz",
+            "Mantenha o controle total dos seus Bitcoin com o poder das trocas atômicas da ZEUS Swaps",
 
         boltz_plugin_questions_title: "Dúvidas?",
         boltz_plugin_questions_subtitle: "Adoraríamos ouvir você!",
@@ -2156,7 +2156,7 @@ const dict = {
             "Carteira integrada e API abrangente para integração perfeita na sua infraestrutura.",
         boltz_client_cli_second_paragraph:
             "Monitore, controle e automatize tudo via linha de comando ou com seus próprios apps.",
-        boltz_client_cta_title: "Adicione a Boltz à sua infraestrutura!",
+        boltz_client_cta_title: "Adicione a ZEUS Swaps à sua infraestrutura!",
         boltz_client_cta_subtitle:
             "Junte-se à comunidade de empresas e operadores de nós que usam o Boltz Client",
 
@@ -2172,7 +2172,7 @@ const dict = {
         boltz_pro_chart_x_axis: "Data",
         boltz_pro_negative_fee: "Você ganha sats",
         boltz_pro_lower_fee: "Você economiza sats",
-        boltz_pro_regular_fee: "Taxa Regular Boltz",
+        boltz_pro_regular_fee: "Taxa Regular ZEUS Swaps",
         boltz_pro_target_audience_title: "Para quem é a Boltz Pro?",
         boltz_pro_target_audience_subtitle:
             "Feita para profissionais que querem ganhar sats, não para pagamentos do dia a dia",
@@ -2238,7 +2238,7 @@ const dict = {
             "Requer chave de resgate e carteira",
         rescue_external_resume: "Continuar",
         evm_rescue_prompt:
-            'Se você enviou fundos para uma troca da Boltz em uma rede EVM, use "Reembolsar troca"; se estava recebendo fundos de uma rede EVM, use "Continuar troca" para resgatar uma troca que não está disponível no histórico deste navegador.',
+            'Se você enviou fundos para uma troca da ZEUS Swaps em uma rede EVM, use "Reembolsar troca"; se estava recebendo fundos de uma rede EVM, use "Continuar troca" para resgatar uma troca que não está disponível no histórico deste navegador.',
         evm_rescue_refund_title: "Reembolsar troca",
         start_scanning: "Iniciar varredura",
         stop_scanning: "Parar varredura",
@@ -2260,12 +2260,12 @@ const dict = {
         status: "状态",
         fast: "快速",
         l2: "建立在二层网络之上",
-        l2_sub: "Boltz利用像闪电网络这样的二层网络扩展技术",
+        l2_sub: "ZEUS Swaps利用像闪电网络这样的二层网络扩展技术",
         assets_sub: "比特币层和稳定币",
         safe: "安全",
         non_custodial: "非托管",
         non_custodial_sub:
-            "Boltz上的交换是原子式,密码学确保用户始终掌握自己的资金",
+            "ZEUS Swaps上的交换是原子式,密码学确保用户始终掌握自己的资金",
         node: "闪电网络节点",
         error: "错误",
         error_subline: "API的响应无效，出现异常。",
@@ -2288,7 +2288,7 @@ const dict = {
         help: "支持",
         network_fee: "网络费",
         swap_fees: "交换费用",
-        fee: "Boltz费",
+        fee: "ZEUS Swaps费",
         denomination: "面额",
         send: "发送",
         checking_previous_transaction: "正在检查上一笔交易",
@@ -2308,7 +2308,7 @@ const dict = {
         minimum_amount: "最小金额为{{ amount }}{{ denomination }}",
         maximum_amount: "最大金额为{{ amount }}{{ denomination }}",
         assets: "多层",
-        footer: "Boltz团队倾情🧡制作",
+        footer: "ZEUS Swaps团队倾情🧡制作",
         create_swap: "创建交换",
         get_gas_token_for_gas: "获取{{ gasToken }}作为 Gas 费",
         new_swap: "新的交换",
@@ -2350,7 +2350,7 @@ const dict = {
         copy_amount: "金额",
         copy_bip21: "BIP21",
         rescue_a_swap_subline:
-            "如果您向 Boltz 交换发送了 BTC 或 LBTC，请上传或输入您的救援密钥，以恢复在该浏览器的交换历史记录中不可用的交换。",
+            "如果您向 ZEUS Swaps 交换发送了 BTC 或 LBTC，请上传或输入您的救援密钥，以恢复在该浏览器的交换历史记录中不可用的交换。",
         rescue_a_swap_mnemonic:
             "输入您的救援密钥以恢复此浏览器交换历史记录中不存在的交换。",
         refund_past_swaps: "过去的交换",
@@ -2389,7 +2389,7 @@ const dict = {
         locktime_not_satisfied: "未满足锁定时间要求",
         already_refunded: "交换已经退还",
         api_offline: "API离线",
-        api_offline_msg: "无法连接到Boltz API,请稍后重试",
+        api_offline_msg: "无法连接到ZEUS Swaps API,请稍后重试",
         refund_explainer: "您将能够在超时后退款!",
         wasm_not_supported: "请在您的浏览器中激活WebAssembly",
         created: "已创建",
@@ -2514,7 +2514,7 @@ const dict = {
         no_wallet_connected: "未连接钱包",
         no_lockup_transaction: "未找到锁仓交易",
         routing_fee_limit: "最大路由费用",
-        download_boltz_rescue_key: "Boltz 救援密钥",
+        download_boltz_rescue_key: "ZEUS Swaps 救援密钥",
         download_boltz_rescue_key_subline: "使用单个救援密钥备份所有交换 🙌",
         download_boltz_rescue_key_subline_second:
             "此密钥可在任何设备上使用，并适用于所有用它创建的交换。",
@@ -2527,10 +2527,10 @@ const dict = {
         download_new_key: "下载救援密钥",
         verify_boltz_rescue_key: "验证博尔茨救援密钥",
         verify_boltz_rescue_key_subline:
-            "请选择您之前保存的 Boltz 救援密钥进行验证。",
+            "请选择您之前保存的 ZEUS Swaps 救援密钥进行验证。",
         verify_key: "验证密钥",
         verify_key_failed:
-            "Boltz 救援密钥验证失败。我们建议下载新的 Boltz 救援密钥以继续。",
+            "ZEUS Swaps 救援密钥验证失败。我们建议下载新的 ZEUS Swaps 救援密钥以继续。",
         rescue_key: "救援密钥",
         reset_rescue_key_tooltip: "生成新的救援密钥并清除所有交换数据",
         reset_rescue_key_prompt:
@@ -2547,7 +2547,7 @@ const dict = {
         pagination_info: "{{ start }} 的 {{ end }} 页",
         generate_key: "生成新密钥",
         show_rescue_key_instead: "改为显示 12 个单词的救援密钥",
-        backup_boltz_rescue_key: "备份 Boltz 救援密钥",
+        backup_boltz_rescue_key: "备份 ZEUS Swaps 救援密钥",
         backup_boltz_rescue_key_subline_second:
             "这个新密钥适用于任何设备，并可用于所有用其创建的兑换操作。",
         backup_boltz_rescue_key_subline_third:
@@ -2609,7 +2609,7 @@ const dict = {
         products_plugin_title: "Boltz BTCPay 插件",
         products_plugin_description:
             "一种非托管解决方案，无需运行 Lightning 节点即可轻松接受 Lightning 支付",
-        products_client_title: "Boltz 客户端",
+        products_client_title: "ZEUS Swaps 客户端",
         products_client_description:
             "我们的企业级交换守护程序，用于服务器集成和流动性管理",
         products_pro_title: "Boltz Pro",
@@ -2625,7 +2625,7 @@ const dict = {
         boltz_plugin_description: "非托管解决方案，轻松接受 Lightning 支付",
         boltz_plugin_step_install_title: "添加插件",
         boltz_plugin_step_install_description:
-            "在您的 BTCPay 服务器上安装 Boltz 插件",
+            "在您的 BTCPay 服务器上安装 ZEUS Swaps 插件",
         boltz_plugin_step_setup_title: "设置您的钱包",
         boltz_plugin_step_setup_description: "连接您的外部钱包或创建一个新钱包",
         boltz_plugin_step_paid_title: "接受 Lightning",
@@ -2645,12 +2645,12 @@ const dict = {
             "根据您的偏好自动交换到主链比特币",
         boltz_plugin_feature_self_custodial_title: "非托管",
         boltz_plugin_feature_self_custodial_description:
-            "保持对您的比特币的完全控制，由 Boltz 原子交换提供支持",
+            "保持对您的比特币的完全控制，由 ZEUS Swaps 原子交换提供支持",
 
         boltz_plugin_questions_title: "有问题？",
         boltz_plugin_questions_subtitle: "我们很乐意听取您的意见！",
         // Client
-        boltz_client_name: "Boltz 客户端",
+        boltz_client_name: "ZEUS Swaps 客户端",
         boltz_client_description:
             "企业级交换守护程序，用于服务器集成和流动性管理",
         boltz_client_features_title: "专为企业和专业人士打造",
@@ -2673,7 +2673,7 @@ const dict = {
             "内置钱包系统和全面的 API，可无缝集成到您的基础设施中。",
         boltz_client_cli_second_paragraph:
             "通过您自己的应用程序或 CLI 监控、控制和自动化。",
-        boltz_client_cta_title: "将 Boltz 添加到您的基础设施！",
+        boltz_client_cta_title: "将 ZEUS Swaps 添加到您的基础设施！",
         boltz_client_cta_subtitle:
             "加入使用 Boltz Client 的企业和节点运营商社区",
 
@@ -2688,7 +2688,7 @@ const dict = {
         boltz_pro_chart_x_axis: "日期",
         boltz_pro_negative_fee: "您赚取聪",
         boltz_pro_lower_fee: "您节省聪",
-        boltz_pro_regular_fee: "常规 Boltz 费用",
+        boltz_pro_regular_fee: "常规 ZEUS Swaps 费用",
         boltz_pro_target_audience_title: "Boltz Pro 适合谁？",
         boltz_pro_target_audience_subtitle:
             "专为想要赚取聪的专业人士打造，而不是日常支付",
@@ -2706,7 +2706,7 @@ const dict = {
         boltz_pro_cta_subtitle: "探索当前赚取聪的机会",
         boltz_pro_options_title: "使用 Boltz Pro 的 3 种方式",
         boltz_pro_options_subtitle: "选择最适合您的方式",
-        boltz_pro_option_client_title: "Boltz 客户端",
+        boltz_pro_option_client_title: "ZEUS Swaps 客户端",
         boltz_pro_option_client_description:
             "通过 API 和 CLI 完全自动化 Boltz Pro",
         boltz_pro_option_web_title: "网络应用",
@@ -2744,7 +2744,7 @@ const dict = {
         rescue_external_requires_rescue_key_wallet: "需要救援密钥和钱包",
         rescue_external_resume: "继续",
         evm_rescue_prompt:
-            "如果你向 EVM 链上的 Boltz 交换发送了资金，请使用“退还交换”；如果你正在从 EVM 链接收资金，请使用“继续交换”，以救援一个未在此浏览器交换历史中显示的交换。",
+            "如果你向 EVM 链上的 ZEUS Swaps 交换发送了资金，请使用“退还交换”；如果你正在从 EVM 链接收资金，请使用“继续交换”，以救援一个未在此浏览器交换历史中显示的交换。",
         evm_rescue_refund_title: "退还交换",
         start_scanning: "开始扫描",
         stop_scanning: "停止扫描",
@@ -2765,12 +2765,12 @@ const dict = {
         status: "ステータス",
         fast: "高速",
         l2: "L2技術を活用",
-        l2_sub: "Boltzは、LiquidネットワークやLightningネットワークなどのL2スケーリング技術を利用しています",
+        l2_sub: "ZEUS Swapsは、LiquidネットワークやLightningネットワークなどのL2スケーリング技術を利用しています",
         assets_sub: "ビットコインレイヤーとステーブルコイン",
         safe: "安全",
         non_custodial: "ノンカストディアル型",
         non_custodial_sub:
-            "Boltzのスワップはノンカストディアル型です。暗号技術により、ユーザーは常に資金を自己管理できます",
+            "ZEUS Swapsのスワップはノンカストディアル型です。暗号技術により、ユーザーは常に資金を自己管理できます",
         node: "ノード",
         error: "エラー",
         error_subline: "APIからの無効な応答です。何かが間違っています",
@@ -2793,7 +2793,7 @@ const dict = {
         help: "ヘルプ",
         network_fee: "ネットワーク手数料",
         swap_fees: "スワップ手数料",
-        fee: "Boltz手数料",
+        fee: "ZEUS Swaps手数料",
         denomination: "単位",
         send: "送信",
         checking_previous_transaction: "前回のトランザクションを確認中",
@@ -2814,7 +2814,7 @@ const dict = {
         minimum_amount: "最小金額は{{ amount }} {{ denomination }}です",
         maximum_amount: "最大金額は{{ amount }} {{ denomination }}です",
         assets: "アセット",
-        footer: "Team Boltzによる🧡で作成されました",
+        footer: "Team ZEUS Swapsによる🧡で作成されました",
         create_swap: "Swapの作成",
         get_gas_token_for_gas: "{{ gasToken }}をガス代として取得",
         new_swap: "新しいスワップ",
@@ -2863,7 +2863,7 @@ const dict = {
         copy_amount: "金額をコピー",
         copy_bip21: "BIP21をコピー",
         rescue_a_swap_subline:
-            "BTCまたはLBTCをBoltzスワップに送金した場合、このブラウザのスワップ履歴に表示されないスワップを復旧するには、復旧キーをアップロードまたは入力してください。",
+            "BTCまたはLBTCをZEUS Swapsスワップに送金した場合、このブラウザのスワップ履歴に表示されないスワップを復旧するには、復旧キーをアップロードまたは入力してください。",
         rescue_a_swap_mnemonic:
             "このブラウザの交換履歴にない交換を復元するには、復元キーを入力してください。",
         refund_past_swaps: "過去のスワップ",
@@ -2910,7 +2910,7 @@ const dict = {
         already_refunded: "スワップはすでに返金されています",
         api_offline: "APIがオフラインです",
         api_offline_msg:
-            "Boltz APIに接続できませんでした。後でもう一度お試しください",
+            "ZEUS Swaps APIに接続できませんでした。後でもう一度お試しください",
         refund_explainer: "タイムアウト後に返金できます!",
         wasm_not_supported: "ブラウザでWebAssemblyを有効にしてください",
         created: "作成済み",
@@ -3046,7 +3046,7 @@ const dict = {
         no_wallet_connected: "財布はつながっていない！",
         no_lockup_transaction: "ロックアップトランザクションが見つかりません",
         routing_fee_limit: "ルーティング料金の上限",
-        download_boltz_rescue_key: "Boltzレスキューキー",
+        download_boltz_rescue_key: "ZEUS Swapsレスキューキー",
         download_boltz_rescue_key_subline:
             "1つのレスキューキーですべてのスワップをバックアップ 🙌",
         download_boltz_rescue_key_subline_second:
@@ -3060,12 +3060,12 @@ const dict = {
         download_boltz_rescue_key_subline_warning:
             "そうしないと、**資金の損失**につながる可能性があります。",
         download_new_key: "レスキューキーをダウンロード",
-        verify_boltz_rescue_key: "Boltzレスキューキー検証",
+        verify_boltz_rescue_key: "ZEUS Swapsレスキューキー検証",
         verify_boltz_rescue_key_subline:
-            "以前にダウンロードしたBoltzレスキューキーを選択して確認してください。",
+            "以前にダウンロードしたZEUS Swapsレスキューキーを選択して確認してください。",
         verify_key: "ベリファイキー",
         verify_key_failed:
-            "Boltzレスキューキーの検証に失敗しました。続行するには、新しいBoltzレスキューキーをダウンロードすることをお勧めします。",
+            "ZEUS Swapsレスキューキーの検証に失敗しました。続行するには、新しいZEUS Swapsレスキューキーをダウンロードすることをお勧めします。",
         rescue_key: "レスキューキー",
         reset_rescue_key_tooltip:
             "新しいレスキューキーを生成し、すべてのスワップデータを削除",
@@ -3085,7 +3085,7 @@ const dict = {
         pagination_info: "{{ end }} ページ中 {{ start }} ページ目",
         generate_key: "新しいキーを生成",
         show_rescue_key_instead: "代わりに12語のレスキューキーを表示",
-        backup_boltz_rescue_key: "Boltzレスキューキーのバックアップ",
+        backup_boltz_rescue_key: "ZEUS Swapsレスキューキーのバックアップ",
         backup_boltz_rescue_key_subline_second:
             "この新しいキーはどのデバイスでも動作し、このキーで作成されたすべてのスワップに対応します。",
         backup_boltz_rescue_key_subline_third:
@@ -3154,7 +3154,7 @@ const dict = {
         products_plugin_title: "Boltz BTCPayプラグイン",
         products_plugin_description:
             "Lightningノードを実行せずに簡単にLightning決済を受け入れるノンカストディアルソリューション",
-        products_client_title: "Boltzクライアント",
+        products_client_title: "ZEUS Swapsクライアント",
         products_client_description:
             "サーバー統合とリクイディティ管理のための当社のエンタープライズグレードのスワップデーモン",
         products_pro_title: "Boltz Pro",
@@ -3171,7 +3171,7 @@ const dict = {
             "Lightning決済を簡単に受け入れるノンカストディアルソリューション",
         boltz_plugin_step_install_title: "プラグインを追加",
         boltz_plugin_step_install_description:
-            "BTCPayサーバーにBoltzプラグインをインストールする",
+            "BTCPayサーバーにZEUS Swapsプラグインをインストールする",
         boltz_plugin_step_setup_title: "ウォレットを設定",
         boltz_plugin_step_setup_description:
             "外部ウォレットを接続するか、新しいウォレットを作成する",
@@ -3192,12 +3192,12 @@ const dict = {
             "設定に基づいてメインチェーンBitcoinへ自動スワップ",
         boltz_plugin_feature_self_custodial_title: "ノンカストディアル",
         boltz_plugin_feature_self_custodial_description:
-            "Boltz Atomic Swapsによって駆動され、Bitcoinの完全なコントロールを維持",
+            "ZEUS Atomic Swapsによって駆動され、Bitcoinの完全なコントロールを維持",
 
         boltz_plugin_questions_title: "質問がありますか？",
         boltz_plugin_questions_subtitle: "ぜひお聞かせください！",
         // Client
-        boltz_client_name: "Boltzクライアント",
+        boltz_client_name: "ZEUS Swapsクライアント",
         boltz_client_description:
             "サーバー統合とリクイディティ管理のためのエンタープライズグレードのスワップデーモン",
         boltz_client_features_title: "企業とプロフェッショナル向けに構築",
@@ -3220,7 +3220,7 @@ const dict = {
             "インフラストラクチャへのシームレスな統合のための組み込みウォレットシステムと包括的なAPI。",
         boltz_client_cli_second_paragraph:
             "独自のアプリケーションまたはCLI経由で監視、制御、自動化。",
-        boltz_client_cta_title: "インフラストラクチャにBoltzを追加！",
+        boltz_client_cta_title: "インフラストラクチャにZEUS Swapsを追加！",
         boltz_client_cta_subtitle:
             "Boltz Clientを使用している企業やノードランナーのコミュニティに参加",
 
@@ -3235,7 +3235,7 @@ const dict = {
         boltz_pro_chart_x_axis: "日付",
         boltz_pro_negative_fee: "satsを獲得",
         boltz_pro_lower_fee: "satsを節約",
-        boltz_pro_regular_fee: "通常のBoltz手数料",
+        boltz_pro_regular_fee: "通常のZEUS Swaps手数料",
         boltz_pro_target_audience_title: "Boltz Proは誰のため？",
         boltz_pro_target_audience_subtitle:
             "日常の支払いではなく、satsを稼ぎたいプロフェッショナル向けに構築",
@@ -3257,7 +3257,7 @@ const dict = {
         boltz_pro_cta_subtitle: "現在のsatsを稼ぐ機会を見つける",
         boltz_pro_options_title: "Boltz Proの3つの使用方法",
         boltz_pro_options_subtitle: "最適なものを選択",
-        boltz_pro_option_client_title: "Boltzクライアント",
+        boltz_pro_option_client_title: "ZEUS Swapsクライアント",
         boltz_pro_option_client_description:
             "APIとCLI経由でBoltz Proを完全に自動化",
         boltz_pro_option_web_title: "Webアプリ",
@@ -3299,7 +3299,7 @@ const dict = {
             "レスキューキーとウォレットが必要です",
         rescue_external_resume: "再開",
         evm_rescue_prompt:
-            "EVM チェーン上の Boltz スワップに資金を送金した場合は「スワップを返金」を使用し、EVM チェーンから資金を受け取っていた場合は「スワップを再開」を使用して、このブラウザのスワップ履歴にないスワップを救済してください。",
+            "EVM チェーン上の ZEUS Swaps スワップに資金を送金した場合は「スワップを返金」を使用し、EVM チェーンから資金を受け取っていた場合は「スワップを再開」を使用して、このブラウザのスワップ履歴にないスワップを救済してください。",
         evm_rescue_refund_title: "スワップを返金",
         start_scanning: "スキャンを開始",
         stop_scanning: "スキャンを停止",
