@@ -257,7 +257,6 @@ const CreateButton = () => {
         pairs,
         setPairs,
         online,
-        apiError,
         notify,
         t,
         newKey,
@@ -1065,16 +1064,8 @@ const CreateButton = () => {
         }
     };
 
-    const getButtonLabel = (label: ButtonLabelParams) => {
-        if (
-            label.key === "api_offline" &&
-            apiError() &&
-            !apiError().includes("NetworkError")
-        ) {
-            return apiError();
-        }
-        return t(label.key, label.params);
-    };
+    const getButtonLabel = (label: ButtonLabelParams) =>
+        t(label.key, label.params);
 
     return (
         <button
