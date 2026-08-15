@@ -119,8 +119,8 @@ const Nav = (props: { network: string; isPro?: boolean }) => {
                     </Show>
                     <ExternalLink
                         class="external"
-                        href="https://olympusln.com"
-                        aria-label="Olympus home">
+                        href="https://zeusln.com"
+                        aria-label="ZEUS home">
                         <AiFillHome size={23} />
                     </ExternalLink>
                 </div>
