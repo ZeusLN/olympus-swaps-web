@@ -16,6 +16,7 @@ const mainnetPreset = buildMainnetConfig({
 
 const config = {
     ...baseConfig,
+    swapsSuspended: true,
     // ZEUS swaps only offers mainchain Bitcoin <-> Lightning
     defaultBitcoinOnly: true,
     // The ZEUS Lightning node does not support BOLT12 offers

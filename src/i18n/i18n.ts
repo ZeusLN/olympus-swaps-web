@@ -551,6 +551,20 @@ const dict = {
         approve_allowance_reset_line:
             "Some {{ tokenStandard }} tokens require resetting the allowance to 0 before setting a new amount. You may need to approve twice.",
         upload_rescue_key: "Select Rescue Key",
+
+        suspension_status: "Swap Service Disabled",
+        suspension_p1:
+            "Update: ZEUS Swaps will remain offline until further notice.",
+        suspension_p2: "Our API remains available to process refunds.",
+        suspension_p3:
+            "Our support team stays reachable at support@zeusln.com.",
+        suspension_p4:
+            "ZEUS Swaps runs on the open-source Boltz stack. When Boltz disclosed the sustained, AI-assisted attacks on its infrastructure and suspended its swap service on 3 August, we took our own instance offline as a precaution. It remains offline while we complete a full review of our security posture.",
+        suspension_p5:
+            "To be clear: no user funds were ever at risk. ZEUS Swaps is non-custodial by design.",
+        suspension_p6:
+            "Any decision about the future of the service will be based on that security work, not the news cycle. We'll keep you posted 🙏",
+        suspension_date: "3 August 2026",
     },
     de: {
         language: "Deutsch",
@@ -1121,6 +1135,20 @@ const dict = {
         approve_allowance_reset_line:
             "Einige {{ tokenStandard }}-Token verlangen, dass die Freigabe zuerst auf 0 gesetzt wird, bevor ein neuer Betrag gesetzt werden kann. Möglicherweise musst du zweimal freigeben.",
         upload_rescue_key: "Rettungsschlüssel auswählen",
+
+        suspension_status: "Swap-Dienst deaktiviert",
+        suspension_p1: "Update: ZEUS Swaps bleibt bis auf Weiteres offline.",
+        suspension_p2:
+            "Unsere API bleibt verfügbar, um Erstattungen abzuwickeln.",
+        suspension_p3:
+            "Unser Support-Team bleibt unter support@zeusln.com erreichbar.",
+        suspension_p4:
+            "ZEUS Swaps läuft auf dem Open-Source-Stack von Boltz. Als Boltz die anhaltenden, KI-gestützten Angriffe auf seine Infrastruktur offenlegte und seinen Swap-Dienst am 3. August aussetzte, haben wir unsere eigene Instanz vorsorglich offline genommen. Sie bleibt offline, während wir eine vollständige Überprüfung unserer Sicherheitslage abschließen.",
+        suspension_p5:
+            "Um es klar zu sagen: Nutzergelder waren zu keinem Zeitpunkt in Gefahr. ZEUS Swaps ist von Grund auf non-custodial.",
+        suspension_p6:
+            "Jede Entscheidung über die Zukunft des Dienstes wird auf Grundlage dieser Sicherheitsarbeit getroffen, nicht des Nachrichtenzyklus. Wir halten dich auf dem Laufenden 🙏",
+        suspension_date: "3. August 2026",
     },
     es: {
         language: "Español",
@@ -1689,6 +1717,20 @@ const dict = {
         approve_allowance_reset_line:
             "Algunos tokens {{ tokenStandard }} requieren restablecer la asignación a 0 antes de establecer una nueva cantidad. Es posible que debas aprobar dos veces.",
         upload_rescue_key: "Seleccionar clave de rescate",
+
+        suspension_status: "Servicio de swaps deshabilitado",
+        suspension_p1:
+            "Actualización: ZEUS Swaps permanecerá fuera de línea hasta nuevo aviso.",
+        suspension_p2: "Nuestra API sigue disponible para procesar reembolsos.",
+        suspension_p3:
+            "Nuestro equipo de soporte sigue disponible en support@zeusln.com.",
+        suspension_p4:
+            "ZEUS Swaps funciona sobre el stack de código abierto de Boltz. Cuando Boltz reveló los ataques sostenidos asistidos por IA contra su infraestructura y suspendió su servicio de swaps el 3 de agosto, pusimos nuestra propia instancia fuera de línea como precaución. Sigue fuera de línea mientras completamos una revisión completa de nuestra postura de seguridad.",
+        suspension_p5:
+            "Para que quede claro: los fondos de los usuarios nunca estuvieron en riesgo. ZEUS Swaps es non-custodial por diseño.",
+        suspension_p6:
+            "Cualquier decisión sobre el futuro del servicio se basará en ese trabajo de seguridad, no en el ciclo de noticias. Te mantendremos informado 🙏",
+        suspension_date: "3 de agosto de 2026",
     },
     pt: {
         language: "Português",
@@ -2252,6 +2294,21 @@ const dict = {
         approve_allowance_reset_line:
             "Alguns tokens {{ tokenStandard }} exigem redefinir a permissão para 0 antes de definir um novo valor. Talvez você precise aprovar duas vezes.",
         upload_rescue_key: "Selecionar chave de resgate",
+
+        suspension_status: "Serviço de swap desativado",
+        suspension_p1:
+            "Atualização: o ZEUS Swaps permanecerá offline até novo aviso.",
+        suspension_p2:
+            "Nossa API continua disponível para processar reembolsos.",
+        suspension_p3:
+            "Nossa equipe de suporte continua acessível em support@zeusln.com.",
+        suspension_p4:
+            "O ZEUS Swaps roda sobre a stack de código aberto da Boltz. Quando a Boltz revelou os ataques contínuos assistidos por IA à sua infraestrutura e suspendeu seu serviço de swaps em 3 de agosto, tiramos nossa própria instância do ar por precaução. Ela permanece offline enquanto concluímos uma revisão completa da nossa postura de segurança.",
+        suspension_p5:
+            "Para ser explícito: os fundos dos usuários nunca estiveram em risco. O ZEUS Swaps é non-custodial por design.",
+        suspension_p6:
+            "Qualquer decisão sobre o futuro do serviço será baseada nesse trabalho de segurança, não no ciclo de notícias. Manteremos você informado 🙏",
+        suspension_date: "3 de agosto de 2026",
     },
     zh: {
         language: "中文",
@@ -2757,6 +2814,18 @@ const dict = {
         approve_allowance_reset_line:
             "某些 {{ tokenStandard }} 代币要求先将授权额度重置为 0，然后才能设置新的额度。你可能需要授权两次。",
         upload_rescue_key: "选择救援密钥",
+
+        suspension_status: "兑换服务已停用",
+        suspension_p1: "更新：ZEUS Swaps 将持续停用，直至另行通知。",
+        suspension_p2: "我们的 API 仍可用于处理退款。",
+        suspension_p3: "我们的支持团队仍可通过 support@zeusln.com 联系。",
+        suspension_p4:
+            "ZEUS Swaps 基于 Boltz 的开源技术栈运行。当 Boltz 于 8 月 3 日披露其基础设施遭受持续的 AI 辅助攻击并暂停其兑换服务时，我们出于谨慎将自己的实例下线。在我们完成全面安全审查之前，它将保持离线。",
+        suspension_p5:
+            "明确地说：用户资金从未面临风险。ZEUS Swaps 在设计上就是非托管的。",
+        suspension_p6:
+            "关于该服务未来的任何决定，都将基于安全工作本身，而非新闻热度。我们会随时向大家通报进展 🙏",
+        suspension_date: "2026年8月3日",
     },
     ja: {
         language: "日本語",
@@ -3313,6 +3382,20 @@ const dict = {
         approve_allowance_reset_line:
             "一部の{{ tokenStandard }}トークンでは、新しい金額を設定する前に許可額を0にリセットする必要があります。2回承認が必要になる場合があります。",
         upload_rescue_key: "レスキューキーを選択",
+
+        suspension_status: "スワップサービス停止中",
+        suspension_p1:
+            "お知らせ：ZEUS Swaps は追って通知があるまでオフラインのままとなります。",
+        suspension_p2: "当社の API は、返金処理のために引き続き利用可能です。",
+        suspension_p3:
+            "サポートチームには support@zeusln.com から引き続きご連絡いただけます。",
+        suspension_p4:
+            "ZEUS Swaps は Boltz のオープンソーススタック上で稼働しています。8月3日に Boltz がインフラへの継続的な AI 支援型攻撃を公表しスワップサービスを停止した際、当社は予防措置として自社インスタンスをオフラインにしました。セキュリティ体制の全面的な見直しが完了するまで、オフラインのままとします。",
+        suspension_p5:
+            "はっきりと申し上げます。ユーザーの資金が危険にさらされたことは一度もありません。ZEUS Swaps は設計上ノンカストディアルです。",
+        suspension_p6:
+            "サービスの今後に関する決定は、ニュースサイクルではなくセキュリティ対策の結果に基づいて行います。進展があり次第お知らせします 🙏",
+        suspension_date: "2026年8月3日",
     },
 };
 
