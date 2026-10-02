@@ -52,6 +52,17 @@ describe("fees", () => {
             );
         });
 
+        test("should fallback to explorer when Boltz API has no estimation for the asset", async () => {
+            mockGetFeeEstimationsFromBoltz.mockResolvedValue({});
+
+            const expected = 5.55;
+            mockGetFeeEstimationsFromBlockchain.mockResolvedValue(expected);
+
+            const feeEstimations = await getFeeEstimationsFailover(BTC);
+            expect(feeEstimations).toEqual(expected);
+            expect(mockGetFeeEstimationsFromBlockchain).toHaveBeenCalled();
+        });
+
         test.each`
             asset   | explorerFee | expectedFee
             ${BTC}  | ${1}        | ${2}

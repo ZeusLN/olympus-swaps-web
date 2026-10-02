@@ -56,7 +56,12 @@ const addFloor = (asset: string, fee: number) => {
 export const getFeeEstimationsFailover = async (asset: string) => {
     try {
         const feeEstimations = await getFeeEstimations();
-        return feeEstimations[asset];
+        const fee = feeEstimations[asset];
+        // The backend omits currencies it has no chain client for
+        if (typeof fee !== "number") {
+            throw new Error("no estimation in response");
+        }
+        return fee;
     } catch (e) {
         log.warn(
             `failed to get fee estimations via Boltz API for ${asset}: ${formatError(e)}`,
