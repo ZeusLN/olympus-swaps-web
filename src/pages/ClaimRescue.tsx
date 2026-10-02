@@ -30,6 +30,7 @@ import {
     unconfidentialExtra,
 } from "../components/Fees";
 import LoadingSpinner from "../components/LoadingSpinner";
+import RescueSupportNotice from "../components/RescueSupportNotice";
 import SwapHeader from "../components/SwapHeader";
 import { getSwapIconAssets } from "../components/SwapIcons";
 import { hiddenInformation } from "../components/settings/PrivacyMode";
@@ -347,6 +348,7 @@ const ClaimRescue = () => {
                         ? claimableSwap()?.status
                         : undefined
                 }>
+                <RescueSupportNotice />
                 <Switch>
                     <Match
                         when={

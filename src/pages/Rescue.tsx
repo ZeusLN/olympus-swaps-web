@@ -1,5 +1,6 @@
 import { Show } from "solid-js";
 
+import RescueSupportNotice from "../components/RescueSupportNotice";
 import SettingsCog from "../components/settings/SettingsCog";
 import SettingsMenu from "../components/settings/SettingsMenu";
 import { useGlobalContext } from "../context/Global";
@@ -24,6 +25,8 @@ const Rescue = () => {
                         <SettingsCog />
                         <h2 class="frame-title">{t("rescue_swaps")}</h2>
                     </header>
+
+                    <RescueSupportNotice />
 
                     <Show
                         when={!selection.showResultsPage()}

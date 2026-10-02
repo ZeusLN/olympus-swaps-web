@@ -71,12 +71,59 @@ const handleResponseSuccess = async <T>(response: Response): Promise<T> => {
 
 const handleResponseError = async (response: Response) => {
     const errorMessage = `HTTP ${response.status} from ${response.url}`;
-    try {
-        const body = await response.json();
-        throw new Error(`${errorMessage}: ${formatError(body)}`);
-    } catch {
+    const body = (await response.text().catch(() => "")).trim();
+    if (body === "") {
         throw new Error(errorMessage);
     }
+
+    let details = body;
+    try {
+        details = formatError(JSON.parse(body));
+    } catch {
+        // Explorers answer rejected broadcasts with plain text
+    }
+    throw new Error(`${errorMessage}: ${details}`);
+};
+
+// Explorers relay the node's rejection reason of a broadcast in one of two
+// formats:
+//   mempool: sendrawtransaction RPC error: {"code":-26,"message":"non-final"}
+//   esplora: sendrawtransaction RPC error -26: non-final
+export const parseExplorerRejection = (message: string): string | undefined => {
+    const trimmed = message.trim();
+
+    const json = trimmed.match(/RPC error: (\{.*\})$/);
+    if (json) {
+        try {
+            const parsed = JSON.parse(json[1]) as { message?: unknown };
+            if (typeof parsed.message === "string") {
+                return parsed.message;
+            }
+        } catch {
+            // Fall through to the esplora format
+        }
+    }
+
+    return trimmed.match(/RPC error -?\d+: (.+)$/)?.[1];
+};
+
+const getExplorerRejection = (error: unknown): string | undefined => {
+    const cause = error instanceof Error ? error.cause : undefined;
+    if (!(cause instanceof AggregateError)) {
+        return undefined;
+    }
+
+    for (const explorerError of cause.errors) {
+        if (!(explorerError instanceof Error)) {
+            continue;
+        }
+        const rejection = parseExplorerRejection(explorerError.message);
+        if (rejection !== undefined) {
+            return rejection;
+        }
+    }
+
+    return undefined;
 };
 
 /**
@@ -235,6 +282,16 @@ export const broadcastTransaction = async (
     if (successfulResult) {
         return (successfulResult as PromiseFulfilledResult<{ id: string }>)
             .value;
+    }
+
+    // When the backend is unavailable its error says nothing about the
+    // transaction, so prefer the node rejection an explorer relayed. Callers
+    // match on those strings (e.g. "non-final")
+    const explorerRejection = getExplorerRejection(
+        (results[1] as PromiseRejectedResult).reason,
+    );
+    if (explorerRejection !== undefined) {
+        throw explorerRejection;
     }
 
     throw (results[0] as PromiseRejectedResult).reason;
