@@ -565,6 +565,8 @@ const dict = {
         suspension_p6:
             "Any decision about the future of the service will be based on that security work, not the news cycle. We'll keep you posted 🙏",
         suspension_date: "3 August 2026",
+        rescue_support_notice:
+            "Bitcoin refunds work from this page once the swap's timeout block height has passed. If your swap is not listed, or it needs to be claimed instead of refunded, contact support@zeusln.com.",
     },
     de: {
         language: "Deutsch",
@@ -1149,6 +1151,8 @@ const dict = {
         suspension_p6:
             "Jede Entscheidung über die Zukunft des Dienstes wird auf Grundlage dieser Sicherheitsarbeit getroffen, nicht des Nachrichtenzyklus. Wir halten dich auf dem Laufenden 🙏",
         suspension_date: "3. August 2026",
+        rescue_support_notice:
+            "Bitcoin-Erstattungen funktionieren auf dieser Seite, sobald die Timeout-Blockhöhe des Swaps erreicht ist. Wenn dein Swap nicht aufgeführt ist oder beansprucht statt erstattet werden muss, kontaktiere support@zeusln.com.",
     },
     es: {
         language: "Español",
@@ -1731,6 +1735,8 @@ const dict = {
         suspension_p6:
             "Cualquier decisión sobre el futuro del servicio se basará en ese trabajo de seguridad, no en el ciclo de noticias. Te mantendremos informado 🙏",
         suspension_date: "3 de agosto de 2026",
+        rescue_support_notice:
+            "Los reembolsos de Bitcoin funcionan desde esta página una vez superada la altura de bloque de expiración del intercambio. Si tu intercambio no aparece, o debe reclamarse en lugar de reembolsarse, contacta con support@zeusln.com.",
     },
     pt: {
         language: "Português",
@@ -2309,6 +2315,8 @@ const dict = {
         suspension_p6:
             "Qualquer decisão sobre o futuro do serviço será baseada nesse trabalho de segurança, não no ciclo de notícias. Manteremos você informado 🙏",
         suspension_date: "3 de agosto de 2026",
+        rescue_support_notice:
+            "Os reembolsos de Bitcoin funcionam nesta página depois que a altura de bloco de expiração da troca for atingida. Se a sua troca não aparecer, ou precisar ser resgatada em vez de reembolsada, entre em contato com support@zeusln.com.",
     },
     zh: {
         language: "中文",
@@ -2826,6 +2834,8 @@ const dict = {
         suspension_p6:
             "关于该服务未来的任何决定，都将基于安全工作本身，而非新闻热度。我们会随时向大家通报进展 🙏",
         suspension_date: "2026年8月3日",
+        rescue_support_notice:
+            "交换的超时区块高度过后，即可在此页面进行比特币退款。如果您的交换未列出，或需要领取而不是退款，请联系 support@zeusln.com。",
     },
     ja: {
         language: "日本語",
@@ -3396,6 +3406,8 @@ const dict = {
         suspension_p6:
             "サービスの今後に関する決定は、ニュースサイクルではなくセキュリティ対策の結果に基づいて行います。進展があり次第お知らせします 🙏",
         suspension_date: "2026年8月3日",
+        rescue_support_notice:
+            "スワップのタイムアウトのブロック高に達すると、このページからビットコインの返金ができます。スワップが表示されない場合や、返金ではなく請求が必要な場合は、support@zeusln.com までご連絡ください。",
     },
 };
 
