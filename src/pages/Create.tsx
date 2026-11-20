@@ -813,7 +813,7 @@ const Create = () => {
             <div class="frame">
                 <SettingsCog />
                 <h2
-                    class="frame-title marlide-font"
+                    class="frame-title headline-font"
                     data-testid="create-swap-title">
                     {t("create_swap")}
                 </h2>
