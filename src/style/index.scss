@@ -11,15 +11,15 @@
 }
 
 @font-face {
-    font-family: "PP Neue Montreal";
-    src: url("../fonts/ppneuemontreal-book.otf") format("opentype");
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
 
 * {
     box-sizing: border-box;
-    font-family: "PP Neue Montreal", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .monospace {
